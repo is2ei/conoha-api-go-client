@@ -1,7 +1,10 @@
 package main
 
-import "github.com/spf13/cobra/cobra/cmd"
+import (
+	"github.com/is2ei/conoha-api-go-client"
+)
 
 func main() {
 	cmd.Execute()
 }
+
