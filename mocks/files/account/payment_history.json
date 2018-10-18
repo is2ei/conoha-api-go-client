@@ -1,0 +1,24 @@
+{
+    "payment_history": [
+      {
+        "money_type": "Paypal",
+        "deposit_amount": 100,
+        "received_date": "2014-05-18T12:05:42"
+      },
+      {
+        "money_type": "Paypal",
+        "deposit_amount": 100,
+        "received_date": "2014-06-08T18:20:00"
+      },
+      {
+        "money_type": "CreditCard",
+        "deposit_amount": 100,
+        "received_date": "2014-06-20T17:23:43"
+      },
+      {
+        "money_type": "CreditCard",
+        "deposit_amount": 100,
+        "received_date": "2014-06-22T00:00:00"
+      }
+    ]
+  }

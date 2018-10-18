@@ -1,0 +1,22 @@
+{
+    "order_items": [
+      {
+        "uu_id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "service_name": "VPS",
+        "service_start_date": "2014-05-12T13:48:03",
+        "item_status": "Active"
+      },
+      {
+        "uu_id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "service_name": "VPSAddDisk",
+        "service_start_date": "2014-07-17T17:33:38",
+        "item_status": "Active"
+      },
+      {
+        "uu_id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "service_name": "VPSAddDisk",
+        "service_start_date": "2014-07-17T17:35:26",
+        "item_status": "Active"
+      }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/",
+        "method": "GET"
+    },
+    "response": {
+        "status": 300,
+        "bodyFileName": "network/versions.json"
+    }
+}

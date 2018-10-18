@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/v1",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "mail/version.json"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "version": {
+      "status": "stable",
+      "updated": "2015-05-12T09:00:00Z",
+      "media-types": [
+        {
+          "base": "application/json"
+        },
+        {
+          "base": "application/xml"
+        }
+      ],
+      "id": "v2.0",
+      "links": [
+        {
+          "href": "https://identity.tyo1.conoha.io/v2.0/",
+          "rel": "self"
+        },
+        {
+          "href": "https://www.conoha.jp/docs/",
+          "type": "text/html",
+          "rel": "describedby"
+        }
+      ]
+    }
+  }

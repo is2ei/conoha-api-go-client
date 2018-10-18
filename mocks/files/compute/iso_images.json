@@ -1,0 +1,18 @@
+{
+    "iso-images": [
+      {
+        "url": "ftp://ftp.riken.jp/Linux/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-minimal.iso",
+        "path": "/mnt/isos/repos/tenant_iso_data/43b36734a9e541fd91a62fc63ee93fed/CentOS-6.6-x86_64-minimal.iso",
+        "ctime": "Fri Oct 24 23:22:57 2014",
+        "name": "CentOS-6.6-x86_64-minimal.iso",
+        "size": 401604608
+      },
+      {
+        "url": "http://ftp.riken.jp/Linux/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso",
+        "path": "/mnt/isos/repos/tenant_iso_data/43b36734a9e541fd91a62fc63ee93fed/CentOS-7.0-1406-x86_64-Everything.iso",
+        "ctime": "Sat Jul  5 07:16:46 2014",
+        "name": "CentOS-7.0-1406-x86_64-Everything.iso",
+        "size": 7062159360
+      }
+    ]
+  }

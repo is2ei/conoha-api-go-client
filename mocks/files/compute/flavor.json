@@ -1,0 +1,24 @@
+{
+    "flavor": {
+        "OS-FLV-DISABLED:disabled": false,
+        "OS-FLV-EXT-DATA:ephemeral": 0,
+        "disk": 50,
+        "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+        "links": [
+            {
+                "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                "rel": "self"
+            },
+            {
+                "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                "rel": "bookmark"
+            }
+        ],
+        "name": "2gb-flavor",
+        "os-flavor-access:is_public": true,
+        "ram": 2048,
+        "rxtx_factor": 1,
+        "swap": "",
+        "vcpus": 3
+    }
+}

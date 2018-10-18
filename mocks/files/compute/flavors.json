@@ -1,0 +1,18 @@
+{
+    "flavors": [
+        {
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "2gb-flavor"
+        }
+    ]
+}

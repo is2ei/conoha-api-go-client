@@ -1,0 +1,60 @@
+{
+    "servers": [
+        {
+            "id": "e25b3611-96df-4514-a54b-7729aec48dc1",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/servers/e25b3611-96df-4514-a54b-7729aec48dc1",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/servers/e25b3611-96df-4514-a54b-7729aec48dc1",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "server1"
+        },
+        {
+            "id": "f41ff26a-06c3-4470-9ed9-f20b6780f98d",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/servers/f41ff26a-06c3-4470-9ed9-f20b6780f98d",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/servers/f41ff26a-06c3-4470-9ed9-f20b6780f98d",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "server2"
+        },
+        {
+            "id": "efbc4dea-e7e3-4890-883c-9a7a5ca9e105",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/servers/efbc4dea-e7e3-4890-883c-9a7a5ca9e105",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/servers/efbc4dea-e7e3-4890-883c-9a7a5ca9e105",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "server3"
+        },
+        {
+            "id": "6d9e8d64-236d-4057-a899-f4cf797405cf",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/servers/6d9e8d64-236d-4057-a899-f4cf797405cf",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/servers/6d9e8d64-236d-4057-a899-f4cf797405cf",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "server4"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "versions": [
+      {
+        "status": "CURRENT",
+        "updated": "2015-05-12T09:00:00Z",
+        "id": "v1.0",
+        "links": [
+          {
+            "href": "https://account.tyo1.conoha.io/v1/",
+            "rel": "self"
+          }
+        ]
+      }
+    ]
+  }

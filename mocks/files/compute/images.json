@@ -1,0 +1,23 @@
+{
+    "images": [
+        {
+            "id": "545e54a7-77ba-4d49-8c0e-af7291bb7b63",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/images/545e54a7-77ba-4d49-8c0e-af7291bb7b63",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/images/545e54a7-77ba-4d49-8c0e-af7291bb7b63",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "https://image-service.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/images/545e54a7-77ba-4d49-8c0e-af7291bb7b63",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "500G-0507"
+        }
+    ]
+}

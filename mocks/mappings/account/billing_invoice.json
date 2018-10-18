@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/v1/tenant_id/billing-invoices/invoice_id",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "account/billing_invoice.json"
+    }
+}

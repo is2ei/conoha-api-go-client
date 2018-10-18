@@ -1,0 +1,19 @@
+{
+    "billing_invoice": {
+      "items": [
+        {
+          "invoice_detail_id": 1,
+          "product_name": "VPSService  SSD 50GB  Memory  1G CPU 2Core",
+          "unit_price": 1.3,
+          "quantity": 12,
+          "start_date": "2014-05-19T00:00:00",
+          "end_date": null
+        }
+      ],
+      "invoice_id": 3,
+      "payment_method_type": "Charge",
+      "invoice_date": "2014-06-01T00:00:00",
+      "bill_plas_tax": 300,
+      "due_date": "2014-06-01T00:00:00"
+    }
+  }

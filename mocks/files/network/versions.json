@@ -1,0 +1,14 @@
+{
+    "versions": [
+      {
+        "status": "CURRENT",
+        "id": "v2.0",
+        "links": [
+          {
+            "href": "https://networking.tyo1.conoha.io/v2.0",
+            "rel": "self"
+          }
+        ]
+      }
+    ]
+  }

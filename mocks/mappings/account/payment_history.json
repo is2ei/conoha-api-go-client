@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/v1/tenant_id/payment-history",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "account/payment_history.json"
+    }
+}

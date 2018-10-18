@@ -1,0 +1,26 @@
+{
+    "versions": {
+      "values": [
+        {
+          "id": "v1",
+          "links": [
+            {
+              "href": "https://dns-service.tyo1.conoha.io/v1",
+              "rel": "self"
+            }
+          ],
+          "status": "CURRENT"
+        },
+        {
+          "id": "v2",
+          "links": [
+            {
+              "href": "https://dns-service.tyo1.conoha.io/v2",
+              "rel": "self"
+            }
+          ],
+          "status": "EXPERIMENTAL"
+        }
+      ]
+    }
+  }

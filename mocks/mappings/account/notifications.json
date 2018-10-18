@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/v1/tenant_id/notifications",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "account/notifications.json"
+    }
+}

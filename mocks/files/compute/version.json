@@ -1,0 +1,26 @@
+{
+    "version": {
+        "links": [
+            {
+                "rel": "self",
+                "href": "https://compute.tyo1.conoha.io/v2/"
+            },
+            {
+                "rel": "describedby",
+                "type": "text/html",
+                "href": "https://www.example.jp/docs/"
+            }
+        ],
+        "id": "v2.0",
+        "media-types": [
+            {
+                "base": "application/json"
+            },
+            {
+                "base": "application/xml"
+            }
+        ],
+        "updated": "2015-05-12T09:00:00Z",
+        "status": "CURRENT"
+    }
+}

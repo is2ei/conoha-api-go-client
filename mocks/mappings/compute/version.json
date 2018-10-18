@@ -1,0 +1,10 @@
+{
+    "request": {
+        "path": "/v2",
+        "method": "GET"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "compute/version.json"
+    }
+}

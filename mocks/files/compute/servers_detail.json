@@ -1,0 +1,88 @@
+{
+    "servers": [
+        {
+            "OS-DCF:diskConfig": "MANUAL",
+            "OS-EXT-AZ:availability_zone": "nova",
+            "OS-EXT-SRV-ATTR:host": "cn-a11019.g1.tyo1.v4",
+            "OS-EXT-SRV-ATTR:hypervisor_hostname": "cn-a11019.g1.tyo1.v4",
+            "OS-EXT-SRV-ATTR:instance_name": "tyo1-000024e6",
+            "OS-EXT-STS:power_state": 4,
+            "OS-EXT-STS:task_state": null,
+            "OS-EXT-STS:vm_state": "stopped",
+            "OS-SRV-USG:launched_at": "2015-05-08T01:00:46.000000",
+            "OS-SRV-USG:terminated_at": null,
+            "accessIPv4": "133.130.49.xxx",
+            "accessIPv6": "",
+            "addresses": {
+                "ext-133-130-48-xx-xx": [
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "02:01:85:82:xx:xx",
+                        "OS-EXT-IPS:type": "fixed",
+                        "addr": "133.130.49.xxx",
+                        "version": 4
+                    },
+                    {
+                        "OS-EXT-IPS-MAC:mac_addr": "02:01:85:82:xx:xx",
+                        "OS-EXT-IPS:type": "fixed",
+                        "addr": "2400:8500:1301:727:133:130:49:xxxx",
+                        "version": 6
+                    }
+                ]
+            },
+            "config_drive": "True",
+            "created": "2015-05-08T01:00:41Z",
+            "flavor": {
+                "id": "7eea7469-0d85-4f82-8050-6ae742394681",
+                "links": [
+                    {
+                        "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/7eea7469-0d85-4f82-8050-6ae742394681",
+                        "rel": "bookmark"
+                    }
+                ]
+            },
+            "hostId": "1b21cb1fa28badef69e02b6a2e71909dbf62a982e65892fad8ad01cf",
+            "id": "e25b3611-96df-4514-a54b-7729aec48dc1",
+            "image": {
+                "id": "e2b62c96-abbc-41ae-a5f2-b0fe514b755c",
+                "links": [
+                    {
+                        "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/images/e2b62c96-abbc-41ae-a5f2-b0fe514b755c",
+                        "rel": "bookmark"
+                    }
+                ]
+            },
+            "key_name": null,
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/servers/e25b3611-96df-4514-a54b-7729aec48dc1",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/servers/e25b3611-96df-4514-a54b-7729aec48dc1",
+                    "rel": "bookmark"
+                }
+            ],
+            "metadata": {
+                "backup_id": "",
+                "backup_set": "0",
+                "backup_status": "active",
+                "instance_name_tag": "vps-2015-05-08-09-59",
+                "properties": "{\"vnc_keymap\":\"ja\",\"hw_video_model\":\"vga\",\"hw_vif_model\":\"virtio\",\"hw_disk_bus\":\"virtio\",\"cdrom_path\":\"\"}"
+            },
+            "name": "server1",
+            "os-extended-volumes:volumes_attached": [],
+            "security_groups": [
+                {
+                    "name": "gncs-ipv4-ssh"
+                },
+                {
+                    "name": "gncs-ipv6-ssh"
+                }
+            ],
+            "status": "SHUTOFF",
+            "tenant_id": "1864e71d2deb46f6b47526b69c65a45d",
+            "updated": "2015-05-08T01:02:54Z",
+            "user_id": "068ae7141b3a4e15bebb8b9ca177e9d3"
+        }
+    ]
+}

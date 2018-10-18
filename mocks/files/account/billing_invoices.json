@@ -1,0 +1,26 @@
+{
+    "billing_invoices": [
+      {
+        "invoice_id": 1,
+        "payment_method_type": "Charge",
+        "invoice_date": "2014-08-01T00:00:00",
+        "bill_plas_tax": 500,
+        "due_date": "2014-08-01T00:00:00"
+      },
+      {
+        "invoice_id": 2,
+        "payment_method_type": "Charge",
+        "invoice_date": "2014-07-01T00:00:00",
+        "bill_plas_tax": 500,
+        "due_date": "2014-07-01T00:00:00"
+      },
+      {
+        "invoice_id": 3,
+        "payment_method_type": "Charge",
+        "invoice_date": "2014-06-01T00:00:00",
+        "bill_plas_tax": 500,
+        "due_date": "2014-06-01T00:00:00"
+      }
+    ]
+  }
+  

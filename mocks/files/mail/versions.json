@@ -1,0 +1,15 @@
+{
+    "versions": [
+      {
+        "status": "CURRENT",
+        "updated": "2015-04-07T04:19:05Z",
+        "id": "v1.0",
+        "links": [
+          {
+            "href": "https://mail-hosting.tyo1.conoha.io/v1",
+            "rel": "self"
+          }
+        ]
+      }
+    ]
+  }

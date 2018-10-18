@@ -1,0 +1,12 @@
+{
+    "order_item": {
+      "uu_id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+      "service_name": "VPSAddDisk",
+      "product_name": "VPSAddDisk-200G",
+      "status": "2000",
+      "unit_price": 3.5,
+      "service_start_date": "2014-07-17T13:35:26",
+      "bill_start_date": "2014-07-17T13:35:26",
+      "cancel_date": null
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "image": {
+        "OS-EXT-IMG-SIZE:size": 2733375488,
+        "created": "2015-05-05T11:25:19Z",
+        "id": "0ccce41e-7049-49e9-89b0-2fafad2c02a7",
+        "links": [
+            {
+                "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/images/0ccce41e-7049-49e9-89b0-2fafad2c02a7",
+                "rel": "self"
+            },
+            {
+                "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/images/0ccce41e-7049-49e9-89b0-2fafad2c02a7",
+                "rel": "bookmark"
+            },
+            {
+                "href": "https://image-service.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/images/0ccce41e-7049-49e9-89b0-2fafad2c02a7",
+                "rel": "alternate",
+                "type": "application/vnd.openstack.image"
+            }
+        ],
+        "metadata": {
+            "display_order": "210",
+            "gnc_app": "Ruby on Rails-4.2-64bit",
+            "hw_qemu_guest_agent": "yes",
+            "os_type": "lin"
+        },
+        "minDisk": 0,
+        "minRam": 0,
+        "name": "vmi-ror-4.2-centos-6.6",
+        "progress": 100,
+        "status": "ACTIVE",
+        "updated": "2015-05-07T08:14:47Z"
+    }
+}

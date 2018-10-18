@@ -1,0 +1,30 @@
+{
+    "versions": {
+        "values": [
+            {
+                "id": "v2.0",
+                "links": [
+                    {
+                        "href": "https://identity.tyo1.conoha.io/v2.0/",
+                        "rel": "self"
+                    },
+                    {
+                        "href": "http://docs.openstack.org/",
+                        "rel": "describedby",
+                        "type": "text/html"
+                    }
+                ],
+                "media-types": [
+                    {
+                        "base": "application/json"
+                    },
+                    {
+                        "base": "application/xml"
+                    }
+                ],
+                "status": "stable",
+                "updated": "2014-04-17T00:00:00Z"
+            }
+        ]
+    }
+}

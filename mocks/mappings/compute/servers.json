@@ -1,0 +1,10 @@
+{
+    "request": {
+      "path": "/v2/tenant_id/servers",
+      "method": "GET"
+    },
+    "response": {
+      "status": 202,
+      "bodyFileName": "compute/servers.json"
+    }   
+}
