@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetMailVersionResponseParam struct {
+type getMailVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
 func (c *Conoha) MailVersion() (Version, *ResponseMeta, error) {
-	p := GetMailVersionResponseParam{}
+	p := getMailVersionResponseParam{}
 
 	u := c.MailServiceUrl + "/v1"
 

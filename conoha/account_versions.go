@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetAccountVersionsResponseParam struct {
+type getAccountVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
 func (c *Conoha) AccountVersions() ([]Version, *ResponseMeta, error) {
-	p := GetAccountVersionsResponseParam{}
+	p := getAccountVersionsResponseParam{}
 
 	u := c.AccountServiceUrl
 

@@ -11,40 +11,40 @@ import (
 )
 
 const (
+	normal = "\x1b[0m"
 	red    = "\x1b[31m"
 	green  = "\x1b[32m"
 	yellow = "\x1b[33m"
-	normal = "\x1b[0m"
+	blue   = "\x1b[34m"
 )
 
 var (
 	client     *conoha.Conoha
-	configFile = getHomeDir() + "/.conoha-api-go-client.yml"
+	configFile = getHomeDir() + "/.conoha-api-go-client.conf"
 	verbose    bool
 )
 
 var rootCmd = &cobra.Command{
 	Use:   "conoha",
 	Short: "Yet another ConoHa API client",
-	Long: `Yet another ConoHa API client
-			built by is2ei`,
+	Long:  `Yet another ConoHa API client built by is2ei`,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		config := loadConfig(configFile)
 		client = conoha.NewConoha(
-			config.IdentityServiceUrl,
-			config.AccountServiceUrl,
-			config.ComputeServiceUrl,
-			config.BlockStorageServiceUrl,
-			config.ImageServiceUrl,
-			config.NetworkServiceUrl,
-			config.ObjectStorageServiceUrl,
-			config.DatabaseServiceUrl,
-			config.DnsServiceUrl,
-			config.MailServiceUrl,
-			config.Username,
-			config.Password,
-			config.TenantId,
-			config.Token,
+			config.ServiceUrl.Identity,
+			config.ServiceUrl.Account,
+			config.ServiceUrl.Compute,
+			config.ServiceUrl.BlockStorage,
+			config.ServiceUrl.Image,
+			config.ServiceUrl.Network,
+			config.ServiceUrl.ObjectStorage,
+			config.ServiceUrl.Database,
+			config.ServiceUrl.DNS,
+			config.ServiceUrl.Mail,
+			config.User.Username,
+			config.User.Password,
+			config.User.TenantId,
+			config.User.Token,
 		)
 	},
 	Run: func(cmd *cobra.Command, args []string) {

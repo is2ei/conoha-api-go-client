@@ -50,15 +50,15 @@ type ComputeServerMetadata struct {
 	Properties      string `json:"properties"`
 }
 
-type GetComputeServerResponseParam struct {
+type getComputeServerResponseParam struct {
 	Server ComputeServer `json:"server"`
 }
 
-type ComputeAddServerRequestParam struct {
+type computeAddServerRequestParam struct {
 	Server ComputeServer `json:"server"`
 }
 
-type ComputeAddServerResponseParam struct {
+type computeAddServerResponseParam struct {
 	Server ComputeServer `json:"server"`
 }
 
@@ -73,7 +73,7 @@ func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *ResponseMeta, 
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
-	p := GetComputeServerResponseParam{}
+	p := getComputeServerResponseParam{}
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
@@ -105,13 +105,13 @@ func (c *Conoha) AddComputeServer(
 		KeyName:        keyName,
 		SecurityGroups: []*ComputeSecurityGroup{&securityGroup},
 	}
-	param := ComputeAddServerRequestParam{
+	param := computeAddServerRequestParam{
 		Server: server,
 	}
 	body, err := json.Marshal(param)
 
 	contents, meta, err := c.buildAndExecRequest("POST", u, body)
-	p := ComputeAddServerResponseParam{}
+	p := computeAddServerResponseParam{}
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

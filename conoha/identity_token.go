@@ -5,21 +5,21 @@ import (
 	"fmt"
 )
 
-type PostIdentityTokenRequestParam struct {
-	Auth IdentityAuth `json:"auth"`
+type postIdentityTokenRequestParam struct {
+	Auth identityAuth `json:"auth"`
 }
 
-type IdentityAuth struct {
-	IdentityPasswordCredentials IdentityPasswordCredentials `json:"passwordCredentials"`
+type identityAuth struct {
+	IdentityPasswordCredentials identityPasswordCredentials `json:"passwordCredentials"`
 	TenantId                    string                      `json:"tenantId"`
 }
 
-type IdentityPasswordCredentials struct {
+type identityPasswordCredentials struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
 
-type PostIdentityTokenResponseParam struct {
+type postIdentityTokenResponseParam struct {
 	Access Access `json:"access"`
 }
 
@@ -30,6 +30,7 @@ type Access struct {
 	Metadata       *IdentityTokenMetadata `json:"metadata"`
 }
 
+// Token represents the ConoHa API access token.
 type Token struct {
 	IssuedAt string   `json:"issued_at"`
 	Expires  string   `json:"expires"`
@@ -55,6 +56,7 @@ type Endpoint struct {
 	PublicURL string `json:"publicURL"`
 }
 
+// User represents the user.
 type User struct {
 	Username   string       `json:"username"`
 	RolesLinks []*RolesLink `json:"roles_links"`
@@ -75,16 +77,17 @@ type IdentityTokenMetadata struct {
 	Roles   []string `json:"roles"`
 }
 
+// IdentityToken issues ConoHa API access token.
 func (c *Conoha) IdentityToken() (*Access, *ResponseMeta, error) {
-	passwordCredentials := IdentityPasswordCredentials{
+	passwordCredentials := identityPasswordCredentials{
 		Username: c.Username,
 		Password: c.Password,
 	}
-	auth := IdentityAuth{
+	auth := identityAuth{
 		IdentityPasswordCredentials: passwordCredentials,
 		TenantId:                    c.TenantId,
 	}
-	param := PostIdentityTokenRequestParam{
+	param := postIdentityTokenRequestParam{
 		Auth: auth,
 	}
 
@@ -93,7 +96,7 @@ func (c *Conoha) IdentityToken() (*Access, *ResponseMeta, error) {
 	body, err := json.Marshal(param)
 
 	contents, meta, err := c.buildAndExecRequest("POST", u, body)
-	p := PostIdentityTokenResponseParam{}
+	p := postIdentityTokenResponseParam{}
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

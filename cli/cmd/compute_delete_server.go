@@ -10,7 +10,8 @@ var serverId string
 
 func init() {
 	deleteComputeServerCmd.Flags().StringVarP(&serverId, "serverId", "i", "", "Serer ID")
-	serverCmd.AddCommand(deleteComputeServerCmd)
+	computeCmd.AddCommand(deleteComputeServerCmd)
+	serverCmd.AddCommand(deleteComputeServerCmd) // alias
 }
 
 var deleteComputeServerCmd = &cobra.Command{

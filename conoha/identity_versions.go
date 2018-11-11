@@ -4,16 +4,16 @@ import (
 	"encoding/json"
 )
 
-type GetIdentityVersionsResponseParam struct {
-	Versions IdentityVersionsValues `json:"versions"`
+type getIdentityVersionsResponseParam struct {
+	Versions identityVersionsValues `json:"versions"`
 }
 
-type IdentityVersionsValues struct {
+type identityVersionsValues struct {
 	Values []Version `json:"values"`
 }
 
 func (c *Conoha) IdentityVersions() ([]Version, *ResponseMeta, error) {
-	p := GetIdentityVersionsResponseParam{}
+	p := getIdentityVersionsResponseParam{}
 
 	u := c.IdentityServiceUrl
 

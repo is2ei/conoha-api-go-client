@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetIdentityVersionResponseParam struct {
+type getIdentityVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
 func (c *Conoha) IdentityVersion() (Version, *ResponseMeta, error) {
-	version := GetIdentityVersionResponseParam{}
+	version := getIdentityVersionResponseParam{}
 
 	u := c.IdentityServiceUrl + "/v2.0"
 

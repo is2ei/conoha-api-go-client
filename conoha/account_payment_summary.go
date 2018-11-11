@@ -2,7 +2,7 @@ package conoha
 
 import "encoding/json"
 
-type GetAccountPaymentSummaryResponseParam struct {
+type getAccountPaymentSummaryResponseParam struct {
 	PaymentSummary PaymentSummary `json:"payment_summary"`
 }
 
@@ -11,7 +11,7 @@ type PaymentSummary struct {
 }
 
 func (c *Conoha) PaymentSummary() (PaymentSummary, *ResponseMeta, error) {
-	p := GetAccountPaymentSummaryResponseParam{}
+	p := getAccountPaymentSummaryResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/payment-summary"
 

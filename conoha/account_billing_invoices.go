@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetAccountBillingInvoicesResponseParam struct {
+type getAccountBillingInvoicesResponseParam struct {
 	BillingInvoices []BillingInvoice `json:"billing_invoices"`
 }
 
 func (c *Conoha) BillingInvoices() ([]BillingInvoice, *ResponseMeta, error) {
-	p := GetAccountBillingInvoicesResponseParam{}
+	p := getAccountBillingInvoicesResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/billing-invoices"
 

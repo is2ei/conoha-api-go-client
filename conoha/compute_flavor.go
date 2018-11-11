@@ -2,7 +2,7 @@ package conoha
 
 import "encoding/json"
 
-type GetComputeFlavorResponseParam struct {
+type getComputeFlavorResponseParam struct {
 	Flavor *ComputeFlavor `json:"flavor"`
 }
 
@@ -25,7 +25,7 @@ func (c *Conoha) ComputeFlavor(flavorId string) (*ComputeFlavor, *ResponseMeta, 
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 
-	p := GetComputeFlavorResponseParam{}
+	p := getComputeFlavorResponseParam{}
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

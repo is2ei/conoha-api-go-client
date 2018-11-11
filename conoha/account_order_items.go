@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetAccountOrderItemsResponseParam struct {
+type getAccountOrderItemsResponseParam struct {
 	OrderItems []OrderItem `json:"order_items"`
 }
 
 func (c *Conoha) OrderItems() ([]OrderItem, *ResponseMeta, error) {
-	p := GetAccountOrderItemsResponseParam{}
+	p := getAccountOrderItemsResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/order-items"
 

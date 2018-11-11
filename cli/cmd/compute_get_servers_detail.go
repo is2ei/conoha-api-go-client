@@ -10,6 +10,7 @@ import (
 func init() {
 	getComputeServersDetailCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "Verbose output")
 	computeCmd.AddCommand(getComputeServersDetailCmd)
+	rootCmd.AddCommand(getComputeServersDetailCmd) // alias
 }
 
 var getComputeServersDetailCmd = &cobra.Command{
@@ -36,7 +37,8 @@ var getComputeServersDetailCmd = &cobra.Command{
 			pp.Println(servers)
 		} else {
 			for _, server := range servers {
-				fmt.Printf("name[\x1b[32m%s\x1b[0m],id[\x1b[33m%s\x1b[0m],status[\x1b[34m%s\x1b[0m]", server.Name, server.Id, server.Status)
+				fmt.Printf("name[%s%s%s], id[%s%s%s], status[%s%s%s]\n",
+					green, server.Name, normal, yellow, server.Id, normal, green, server.Status, normal)
 			}
 		}
 

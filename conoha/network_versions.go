@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetNetworkVersionsResponseParam struct {
+type getNetworkVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
 func (c *Conoha) NetworkVersions() ([]Version, *ResponseMeta, error) {
-	p := GetNetworkVersionsResponseParam{}
+	p := getNetworkVersionsResponseParam{}
 
 	u := c.NetworkServiceUrl
 

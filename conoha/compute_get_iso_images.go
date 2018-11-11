@@ -2,7 +2,7 @@ package conoha
 
 import "encoding/json"
 
-type GetComputeIsoImagesResponseParam struct {
+type getComputeIsoImagesResponseParam struct {
 	IsoImages []*IsoImage `json:"iso-images"`
 }
 
@@ -17,7 +17,7 @@ type IsoImage struct {
 func (c *Conoha) IsoImages() ([]*IsoImage, *ResponseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/iso-images"
 
-	p := GetComputeIsoImagesResponseParam{}
+	p := getComputeIsoImagesResponseParam{}
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

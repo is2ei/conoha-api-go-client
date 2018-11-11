@@ -2,16 +2,16 @@ package conoha
 
 import "encoding/json"
 
-type GetDnsVersionsResponseParam struct {
-	Versions DnsVersionsValues `json:"versions"`
+type getDnsVersionsResponseParam struct {
+	Versions dnsVersionsValues `json:"versions"`
 }
 
-type DnsVersionsValues struct {
+type dnsVersionsValues struct {
 	Values []Version `json:"values"`
 }
 
 func (c *Conoha) DnsVersions() ([]Version, *ResponseMeta, error) {
-	p := GetDnsVersionsResponseParam{}
+	p := getDnsVersionsResponseParam{}
 
 	u := c.DnsServiceUrl
 

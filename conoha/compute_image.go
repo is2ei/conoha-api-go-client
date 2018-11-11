@@ -2,7 +2,7 @@ package conoha
 
 import "encoding/json"
 
-type GetComputeImageResponseParam struct {
+type getComputeImageResponseParam struct {
 	Image *ComputeImage `json:"image"`
 }
 
@@ -30,7 +30,7 @@ type ComputeImageMetadata struct {
 func (c *Conoha) ComputeImage(imageId string) (*ComputeImage, *ResponseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/images/" + imageId
 
-	p := GetComputeImageResponseParam{}
+	p := getComputeImageResponseParam{}
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

@@ -35,7 +35,7 @@ var getComputeImagesCmd = &cobra.Command{
 			pp.Println(images)
 		} else {
 			for _, image := range images {
-				fmt.Printf("name[\x1b[32m%s\x1b[0m],id[\x1b[33m%s\x1b[0m]\n", image.Name, image.Id)
+				fmt.Printf("name[%s%s%s, id[%s%s%s\n", green, image.Name, normal, yellow, image.Id, normal)
 			}
 		}
 

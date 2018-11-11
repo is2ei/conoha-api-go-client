@@ -2,7 +2,7 @@ package conoha
 
 import "encoding/json"
 
-type GetComputeKeypairResponseParam struct {
+type getComputeKeypairResponseParam struct {
 	Keypair *Keypair `json:"keypair"`
 }
 
@@ -21,7 +21,7 @@ type Keypair struct {
 func (c *Conoha) ComputeKeypair(keypairName string) (*Keypair, *ResponseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/os-keypairs/" + keypairName
 
-	p := GetComputeKeypairResponseParam{}
+	p := getComputeKeypairResponseParam{}
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

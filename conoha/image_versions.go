@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetImageVersionsResponseParam struct {
+type getImageVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
 func (c *Conoha) ImageVersions() ([]Version, *ResponseMeta, error) {
-	p := GetImageVersionsResponseParam{}
+	p := getImageVersionsResponseParam{}
 
 	u := c.ImageServiceUrl
 
