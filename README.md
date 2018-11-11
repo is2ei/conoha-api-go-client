@@ -1,16 +1,18 @@
 conoha-api-go-client [日本語](README-ja.md)
 =========
 
+[![Build Status](https://travis-ci.org/is2ei/conoha-api-go-client.svg?branch=master&style=flat-square)][travis]
 [![Go Documentation](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)][godocs]
 
+[travis]: https://travis-ci.org/is2ei/conoha-api-go-client
 [godocs]: https://godoc.org/github.com/is2ei/conoha-api-go-client/conoha
 
 conoha-api-go-client is a client written in golang to consume ConoHa API.
 
 It also provides an handy CLI to easily interact with ConoHa API.
 
-- [CLI](https://github.com/is2ei/conoha-api-go-client#cli)
-- [lib](https://github.com/is2ei/conoha-api-go-client#lib)
+- [CLI](#cli)
+- [lib](#lib)
 - [Supported APIs](https://github.com/is2ei/conoha-api-go-client/wiki/Supported-APIs)
 
 ## CLI
@@ -18,6 +20,27 @@ It also provides an handy CLI to easily interact with ConoHa API.
 ### Install
 
 Download latest binary from [Releases](https://github.com/is2ei/conoha-api-go-client/releases)
+
+### Set conf file
+
+```
+$ cat ~/.conoha-api-go-client.conf
+service_url:
+  identity: https://identity.xxxx.conoha.io
+  account: https://account.xxxx.conoha.io
+  compute: https://compute.xxxx.conoha.io
+  block_storage: https://block-storage.xxxx.conoha.io
+  image: https://image-service.xxxx.conoha.io
+  network: https://networking.xxxx.conoha.io
+  object_storage: https://object-storage.xxxx.conoha.io
+  database: https://database-hosting.xxxx.conoha.io
+  dns: https://dns-service.xxxx.conoha.io
+  mail: https://mail-hosting.xxxx.conoha.io
+user:
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
+  tenant_id: YOUR_TENANT_ID
+```
 
 ### Get access token
 
@@ -85,6 +108,4 @@ $ conoha compute server delete \
 
 ## lib
 
-```
-import "github.com/is2ei/conoha-api-go-client/conoha"
-```
+See [GoDoc](https://godoc.org/github.com/is2ei/conoha-api-go-client/conoha)

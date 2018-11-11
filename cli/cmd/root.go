@@ -19,7 +19,7 @@ const (
 
 var (
 	client     *conoha.Conoha
-	configFile = getHomeDir() + "/.conoha-api-go-client.yml"
+	configFile = getHomeDir() + "/.conoha-api-go-client.conf"
 	verbose    bool
 )
 
@@ -31,20 +31,20 @@ var rootCmd = &cobra.Command{
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		config := loadConfig(configFile)
 		client = conoha.NewConoha(
-			config.IdentityServiceUrl,
-			config.AccountServiceUrl,
-			config.ComputeServiceUrl,
-			config.BlockStorageServiceUrl,
-			config.ImageServiceUrl,
-			config.NetworkServiceUrl,
-			config.ObjectStorageServiceUrl,
-			config.DatabaseServiceUrl,
-			config.DnsServiceUrl,
-			config.MailServiceUrl,
-			config.Username,
-			config.Password,
-			config.TenantId,
-			config.Token,
+			config.ServiceUrl.Identity,
+			config.ServiceUrl.Account,
+			config.ServiceUrl.Compute,
+			config.ServiceUrl.BlockStorage,
+			config.ServiceUrl.Image,
+			config.ServiceUrl.Network,
+			config.ServiceUrl.ObjectStorage,
+			config.ServiceUrl.Database,
+			config.ServiceUrl.DNS,
+			config.ServiceUrl.Mail,
+			config.User.Username,
+			config.User.Password,
+			config.User.TenantId,
+			config.User.Token,
 		)
 	},
 	Run: func(cmd *cobra.Command, args []string) {
