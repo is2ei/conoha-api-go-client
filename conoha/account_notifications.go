@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetNotificationsResponseParam struct {
+type getNotificationsResponseParam struct {
 	Notifications []Notification `json:"notifications"`
 }
 
 func (c *Conoha) Notifications() ([]Notification, *ResponseMeta, error) {
-	p := GetNotificationsResponseParam{}
+	p := getNotificationsResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/notifications"
 

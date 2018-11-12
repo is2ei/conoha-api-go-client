@@ -6,12 +6,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var serverId string
-
 func init() {
-	deleteComputeServerCmd.Flags().StringVarP(&serverId, "serverId", "i", "", "Serer ID")
-	computeCmd.AddCommand(deleteComputeServerCmd)
-	serverCmd.AddCommand(deleteComputeServerCmd) // alias
+	deleteComputeServerCmd.Flags().StringVarP(&serverId, "serverId", "i", "", "Server ID")
+	serverCmd.AddCommand(deleteComputeServerCmd)
 }
 
 var deleteComputeServerCmd = &cobra.Command{

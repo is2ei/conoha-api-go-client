@@ -2,12 +2,12 @@ package conoha
 
 import "encoding/json"
 
-type GetDatabaseVersionsResponseParam struct {
+type getDatabaseVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
 func (c *Conoha) DatabaseVersions() ([]Version, *ResponseMeta, error) {
-	p := GetDatabaseVersionsResponseParam{}
+	p := getDatabaseVersionsResponseParam{}
 
 	u := c.DatabaseServiceUrl
 

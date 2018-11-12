@@ -22,6 +22,7 @@ var (
 	client     *conoha.Conoha
 	configFile = getHomeDir() + "/.conoha-api-go-client.conf"
 	verbose    bool
+	serverId   string
 )
 
 var rootCmd = &cobra.Command{
