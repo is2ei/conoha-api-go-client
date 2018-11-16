@@ -6,6 +6,7 @@ type getAccountOrderItemResponseParam struct {
 	OrderItem OrderItem `json:"order_item"`
 }
 
+// OrderItem represents the services/products ordered by the user.
 type OrderItem struct {
 	UUID             string  `json:"uu_id"`
 	ServiceName      string  `json:"service_name"`
@@ -17,6 +18,7 @@ type OrderItem struct {
 	CancelDate       string  `json:"cancel_date"`
 }
 
+// OrderItem fetches the order's detailed information.
 func (c *Conoha) OrderItem(itemId string) (OrderItem, *ResponseMeta, error) {
 	p := getAccountOrderItemResponseParam{}
 

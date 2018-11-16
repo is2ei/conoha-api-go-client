@@ -30,7 +30,7 @@ func TestConoha_ComputeVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.AccountVersions()
+	versions, meta, err := conoha.ComputeVersions()
 
 	assert.NoError(t, err)
 

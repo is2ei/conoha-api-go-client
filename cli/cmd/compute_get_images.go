@@ -21,9 +21,8 @@ var getComputeImagesCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 				return err
-			} else {
-				client.Token = access.Token.Id
 			}
+			client.Token = access.Token.Id
 		}
 		images, _, err := client.ComputeImages()
 		if err != nil {

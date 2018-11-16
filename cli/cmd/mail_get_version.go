@@ -20,9 +20,8 @@ var getMailVersionCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 				return err
-			} else {
-				client.Token = access.Token.Id
 			}
+			client.Token = access.Token.Id
 		}
 		version, _, err := client.MailVersion()
 		if err != nil {

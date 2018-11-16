@@ -76,7 +76,7 @@ func CreateMockServer(t *testing.T, mappingPaths []string) *httptest.Server {
 		f := filepath.Join(mappingsDir, fmt.Sprintf("%s.json", p))
 		contents, err := ioutil.ReadFile(f)
 		if err != nil {
-			t.Fatal(fmt.Sprintf("an error ocurred while loading mapping file %s\n%v", f, err))
+			t.Fatal(fmt.Sprintf("an error occurred while loading mapping file %s\n%v", f, err))
 			return nil
 		}
 

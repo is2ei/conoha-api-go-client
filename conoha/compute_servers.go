@@ -6,6 +6,7 @@ type getComputeServersResponseParam struct {
 	Servers []*ComputeServer `json:"servers"`
 }
 
+// ComputeServers fetches servers list. Each information is summarized.
 func (c *Conoha) ComputeServers() ([]*ComputeServer, *ResponseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers"
 

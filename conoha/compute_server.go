@@ -108,7 +108,7 @@ func (c *Conoha) AddComputeServer(
 	param := computeAddServerRequestParam{
 		Server: server,
 	}
-	body, err := json.Marshal(param)
+	body, _ := json.Marshal(param)
 
 	contents, meta, err := c.buildAndExecRequest("POST", u, body)
 	p := computeAddServerResponseParam{}

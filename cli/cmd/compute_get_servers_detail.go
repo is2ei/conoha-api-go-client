@@ -22,9 +22,8 @@ var getComputeServersDetailCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 				return err
-			} else {
-				client.Token = access.Token.Id
 			}
+			client.Token = access.Token.Id
 		}
 
 		servers, _, err := client.ComputeServersDetail()
@@ -41,7 +40,7 @@ var getComputeServersDetailCmd = &cobra.Command{
 					green, server.Name, normal, yellow, server.Id, normal, green, server.Status, normal)
 				for _, address := range server.Addresses {
 					for _, a := range address {
-						fmt.Printf("adderss[%s%s%s], ", yellow, a.Addr, normal)
+						fmt.Printf("address[%s%s%s], ", yellow, a.Addr, normal)
 					}
 					fmt.Printf("\n")
 				}

@@ -1,4 +1,13 @@
 language: go
-
 go:
   - master
+before_install:
+  - go get github.com/stretchr/testify/assert
+  - go get golang.org/x/tools/cmd/cover
+  - go get github.com/mattn/goveralls
+script:
+  - go test ./conoha -v -covermode=count -coverprofile=coverage.out
+  - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken $COVERALLS_TOKEN
+env:
+  global:
+    secure: "GPIfsh9K7EwDlSWDvlFNGQpVmBLqWk450tRfHFOH7NhmNwg7YMnvNMSv4xy8D1m994LcAXfrXMqdEY/M4tnZmuJBmiuMXTPAJPv/7YsbKFEvEQPWfRdc+SYX9wNHHYgo1RBwoQAEgNwfbgKxLSd/BUeg1J9niL2z8vHvwz4e1FLedzgl80H/ZQ5XVKwbRWSs1GS2PCf81mQRIHFfzwH0ZTvGBbJ6OArccSjqfv3tbpbZlBiiNCEgzM5cJz+ZDHKjuUFjf5Jjx1o0jd+QURTRFGUxnjOv6nev7E5i+1SdvyTDTKJuajazwXpDehH0Yn/Q7uB4s8q6WCEBi5o61M5DyZvVT/Ihl5JbRBrRVxTy+ubnvSkCWDmbXZSgFI12IbWVp4tLY2L9f0yPiMr2O4YQAebWrNYPlzpt0/E7vFWDo6tlweGk3V2eSFSaJI++D3CfVgSa2I2xshMN1X4jDp1I7dpIvwBO2i3K716k6Y4M0xXXkCqnnTgITxN87aqUVxTJM9hnkVm+mj4rZyOQag4r/cuVmwtj+DQ+plJKG0w8HYlt4GuNFJteWt9A9JVpXt6CHDBjyUFgSDCyUlFI9zwj66+nz77NA50VMhJ50FZMU4QBiUsgnY6NZO6kvTC+lCoUOezxqcurQqLDmKUCZFPgphwKiWXxqILItPpRgm9AwyI="

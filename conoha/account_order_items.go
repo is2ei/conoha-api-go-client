@@ -6,6 +6,7 @@ type getAccountOrderItemsResponseParam struct {
 	OrderItems []OrderItem `json:"order_items"`
 }
 
+// OrderItems fetches the orders list.
 func (c *Conoha) OrderItems() ([]OrderItem, *ResponseMeta, error) {
 	p := getAccountOrderItemsResponseParam{}
 

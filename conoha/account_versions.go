@@ -6,6 +6,7 @@ type getAccountVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
+// AccountVersions fetches Account API versions.
 func (c *Conoha) AccountVersions() ([]Version, *ResponseMeta, error) {
 	p := getAccountVersionsResponseParam{}
 

@@ -6,6 +6,7 @@ type getComputeIsoImagesResponseParam struct {
 	IsoImages []*IsoImage `json:"iso-images"`
 }
 
+// IsoImage represents ISO image.
 type IsoImage struct {
 	Url   string `json:"url"`
 	Path  string `json:"path"`
@@ -14,6 +15,7 @@ type IsoImage struct {
 	Size  int    `json:"size"`
 }
 
+// IsoImages fetches ISO images list.
 func (c *Conoha) IsoImages() ([]*IsoImage, *ResponseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/iso-images"
 

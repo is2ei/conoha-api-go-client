@@ -6,6 +6,7 @@ type getAccountNotificationResponseParam struct {
 	Notification Notification `json:"notification"`
 }
 
+// Notification represents notification from ConoHa to the users.
 type Notification struct {
 	NotificationCode int    `json:"notification_code"`
 	Title            string `json:"title"`
@@ -15,6 +16,7 @@ type Notification struct {
 	StartDate        string `json:"start_date"`
 }
 
+// Notification fetches notifications list.
 func (c *Conoha) Notification(notificationCode string) (Notification, *ResponseMeta, error) {
 	p := getAccountNotificationResponseParam{}
 
