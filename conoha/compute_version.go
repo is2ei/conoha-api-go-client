@@ -7,6 +7,8 @@ type getComputeVersionResponseParam struct {
 }
 
 // ComputeVersion fetches Compute API information.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-get_version_detail.html
 func (c *Conoha) ComputeVersion() (Version, *responseMeta, error) {
 	p := getComputeVersionResponseParam{}
 

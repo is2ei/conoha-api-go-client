@@ -3,12 +3,11 @@ package conoha
 import (
 	"testing"
 
-	"github.com/is2ei/conoha-api-go-client/test"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestConoha_NetworkVersions(t *testing.T) {
-	ts := test.CreateMockServer(t, []string{
+	ts := createMockServer(t, []string{
 		"/network/versions",
 	})
 	defer ts.Close()

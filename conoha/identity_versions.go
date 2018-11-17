@@ -12,6 +12,9 @@ type identityVersionsValues struct {
 	Values []Version `json:"values"`
 }
 
+// IdentityVersions fetches Identity API versions list.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/identity-get_version_list.html
 func (c *Conoha) IdentityVersions() ([]Version, *responseMeta, error) {
 	p := getIdentityVersionsResponseParam{}
 

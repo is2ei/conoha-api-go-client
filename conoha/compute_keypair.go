@@ -6,6 +6,7 @@ type getComputeKeypairResponseParam struct {
 	Keypair *Keypair `json:"keypair"`
 }
 
+// Keypair represents key pair information.
 type Keypair struct {
 	PublicKey   string `json:"public_key"`
 	UserId      string `json:"user_id"`
@@ -18,6 +19,9 @@ type Keypair struct {
 	Id          int    `json:"id"`
 }
 
+// ComputeKeypair fetches the key pair information.
+//
+// https://www.conoha.jp/docs/compute-get_keypairs_detail_specified.html
 func (c *Conoha) ComputeKeypair(keypairName string) (*Keypair, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/os-keypairs/" + keypairName
 

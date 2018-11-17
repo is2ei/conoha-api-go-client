@@ -6,6 +6,9 @@ type getImageVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
+// ImageVersions fetches Image API versions list.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/image-get_version_list.html
 func (c *Conoha) ImageVersions() ([]Version, *responseMeta, error) {
 	p := getImageVersionsResponseParam{}
 

@@ -3,14 +3,15 @@ package conoha
 import "encoding/json"
 
 type getDnsVersionsResponseParam struct {
-	Versions dnsVersionsValues `json:"versions"`
+	Versions *struct {
+		Values []*Version `json:"values"`
+	} `json:"versions"`
 }
 
-type dnsVersionsValues struct {
-	Values []Version `json:"values"`
-}
-
-func (c *Conoha) DnsVersions() ([]Version, *responseMeta, error) {
+// DnsVersions fetches DNS API versions list.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/paas-dns-get-version-list.html
+func (c *Conoha) DnsVersions() ([]*Version, *responseMeta, error) {
 	p := getDnsVersionsResponseParam{}
 
 	u := c.DnsServiceUrl

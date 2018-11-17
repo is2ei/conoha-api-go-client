@@ -20,14 +20,14 @@ type identityPasswordCredentials struct {
 }
 
 type postIdentityTokenResponseParam struct {
-	Access Access `json:"access"`
+	Access access `json:"access"`
 }
 
-type Access struct {
+type access struct {
 	Token          *Token                 `json:"token"`
-	ServiceCatalog []*ServiceCatalog      `json:"serviceCatalog"`
+	ServiceCatalog []*serviceCatalog      `json:"serviceCatalog"`
 	User           *User                  `json:"user"`
-	Metadata       *IdentityTokenMetadata `json:"metadata"`
+	Metadata       *identityTokenMetadata `json:"metadata"`
 }
 
 // Token represents the ConoHa API access token.
@@ -35,11 +35,11 @@ type Token struct {
 	IssuedAt string   `json:"issued_at"`
 	Expires  string   `json:"expires"`
 	Id       string   `json:"id"`
-	Tenant   *Tenant  `json:"tenant"`
+	Tenant   *tenant  `json:"tenant"`
 	AuditIds []string `json:"audit_ids"`
 }
 
-type Tenant struct {
+type tenant struct {
 	DomainId    string `json:"domain_id"`
 	Description string `json:"description"`
 	Enabled     bool   `json:"enabled"`
@@ -47,11 +47,11 @@ type Tenant struct {
 	Name        string `json:"name"`
 }
 
-type ServiceCatalog struct {
-	Endpoints []*Endpoint `json:"endpoints"`
+type serviceCatalog struct {
+	Endpoints []*endpoint `json:"endpoints"`
 }
 
-type Endpoint struct {
+type endpoint struct {
 	Region    string `json:"region"`
 	PublicURL string `json:"publicURL"`
 }
@@ -59,26 +59,28 @@ type Endpoint struct {
 // User represents the user.
 type User struct {
 	Username   string       `json:"username"`
-	RolesLinks []*RolesLink `json:"roles_links"`
+	RolesLinks []*rolesLink `json:"roles_links"`
 	Id         string       `json:"id"`
-	Roles      []*Role      `json:"roles"`
+	Roles      []*role      `json:"roles"`
 	Name       string       `json:"name"`
 }
 
-type RolesLink struct {
+type rolesLink struct {
 }
 
-type Role struct {
+type role struct {
 	Name string `json:"name"`
 }
 
-type IdentityTokenMetadata struct {
+type identityTokenMetadata struct {
 	IsAdmin int      `json:"is_admin"`
 	Roles   []string `json:"roles"`
 }
 
 // IdentityToken issues ConoHa API access token.
-func (c *Conoha) IdentityToken() (*Access, *responseMeta, error) {
+//
+// ConoHa API docs: https://www.conoha.jp/docs/identity-post_tokens.html
+func (c *Conoha) IdentityToken() (*access, *responseMeta, error) {
 	passwordCredentials := identityPasswordCredentials{
 		Username: c.Username,
 		Password: c.Password,

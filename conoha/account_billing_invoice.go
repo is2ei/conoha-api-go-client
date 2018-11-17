@@ -6,16 +6,18 @@ type getAccountBillingInvoiceResponseParam struct {
 	BillingInvoice BillingInvoice `json:"billing_invoice"`
 }
 
+// BillingInvoice represents invoice information.
 type BillingInvoice struct {
-	Items             []Item `json:"items"`
-	InvoiceId         int    `json:"invoice_id"`
-	PaymentMethodType string `json:"payment_method_type"`
-	InvoiceDate       string `json:"invoice_date"`
-	BillPlasTax       int    `json:"bill_plas_tax"`
-	DueDate           string `json:"due_date"`
+	Items             []*BillingInvoiceItem `json:"items"`
+	InvoiceId         int                   `json:"invoice_id"`
+	PaymentMethodType string                `json:"payment_method_type"`
+	InvoiceDate       string                `json:"invoice_date"`
+	BillPlasTax       int                   `json:"bill_plas_tax"`
+	DueDate           string                `json:"due_date"`
 }
 
-type Item struct {
+// BillingInvoiceItem represents detailed information of the invoice.
+type BillingInvoiceItem struct {
 	InvoiceDetailId int     `json:"invoice_detail_id"`
 	ProductName     string  `json:"product_name"`
 	UnitPrice       float32 `json:"unit_price"`
@@ -24,6 +26,7 @@ type Item struct {
 	EndDate         string  `json:"EndDate"`
 }
 
+// BillingInvoice fetches invoice information.
 func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *responseMeta, error) {
 	p := getAccountBillingInvoiceResponseParam{}
 

@@ -6,6 +6,9 @@ type getDatabaseVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
+// DatabaseVersion fetches Database API information.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/paas-database-get-version-detail.html
 func (c *Conoha) DatabaseVersion() (Version, *responseMeta, error) {
 	p := getDatabaseVersionResponseParam{}
 

@@ -1,5 +1,5 @@
 package conoha
 
-type MediaType struct {
+type mediaType struct {
 	Base string `json:"base"`
 }

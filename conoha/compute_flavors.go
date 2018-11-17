@@ -7,6 +7,8 @@ type getComputeFlavorsResponseParam struct {
 }
 
 // ComputeFlavors fetches plans list.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-get_flavors_list.html
 func (c *Conoha) ComputeFlavors() ([]*ComputeFlavor, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/flavors"
 

@@ -30,6 +30,8 @@ type ComputeImageMetadata struct {
 }
 
 // ComputeImage fetches summarized information of the server.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-get_images_detail_specified.html
 func (c *Conoha) ComputeImage(imageId string) (*ComputeImage, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/images/" + imageId
 

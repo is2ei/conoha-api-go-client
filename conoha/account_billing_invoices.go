@@ -6,6 +6,7 @@ type getAccountBillingInvoicesResponseParam struct {
 	BillingInvoices []BillingInvoice `json:"billing_invoices"`
 }
 
+// BillingInvoices fetches invoices list.
 func (c *Conoha) BillingInvoices() ([]BillingInvoice, *responseMeta, error) {
 	p := getAccountBillingInvoicesResponseParam{}
 

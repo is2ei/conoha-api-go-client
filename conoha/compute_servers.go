@@ -7,6 +7,8 @@ type getComputeServersResponseParam struct {
 }
 
 // ComputeServers fetches servers list. Each information is summarized.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_list.html
 func (c *Conoha) ComputeServers() ([]*ComputeServer, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers"
 

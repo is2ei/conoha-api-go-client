@@ -75,6 +75,8 @@ type ComputeSecurityGroup struct {
 }
 
 // ComputeServer fetches the server information.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_detail_specified.html
 func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 
@@ -88,6 +90,8 @@ func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *responseMeta, 
 }
 
 // AddComputeServer adds new server.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-create_vm.html
 func (c *Conoha) AddComputeServer(
 	imageRef,
 	flavorRef,
@@ -127,6 +131,8 @@ func (c *Conoha) AddComputeServer(
 }
 
 // DeleteComputeServer deletes the server.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-delete_vm.html
 func (c *Conoha) DeleteComputeServer(serverId string) (*responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 

@@ -61,6 +61,7 @@ func getHomeDir() string {
 	return usr.HomeDir
 }
 
+// Execute is starting point for command execution.
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

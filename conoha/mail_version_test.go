@@ -3,12 +3,11 @@ package conoha
 import (
 	"testing"
 
-	"github.com/is2ei/conoha-api-go-client/test"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestConoha_MailVersion(t *testing.T) {
-	ts := test.CreateMockServer(t, []string{
+	ts := createMockServer(t, []string{
 		"mail/version",
 	})
 	defer ts.Close()

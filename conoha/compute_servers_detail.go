@@ -7,6 +7,8 @@ type getComputeServersDetailResponseParam struct {
 }
 
 // ComputeServersDetail fetches server's detailed information (e.g. IP address).
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_detail_specified.html
 func (c *Conoha) ComputeServersDetail() ([]*ComputeServer, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/detail"
 

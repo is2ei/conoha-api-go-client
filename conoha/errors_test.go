@@ -7,7 +7,7 @@ import (
 )
 
 func TestConoha_NewErrorUnauthorized(t *testing.T) {
-	err := NewErrorUnauthorized("error")
+	err := newErrorUnauthorized("error")
 
 	assert.EqualError(t, err, "error")
 

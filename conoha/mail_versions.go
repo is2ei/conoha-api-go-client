@@ -6,6 +6,9 @@ type getMailVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
+// MailVersions fetches Mail API versions list.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/paas-mail-get-version-list.html
 func (c *Conoha) MailVersions() ([]Version, *responseMeta, error) {
 	p := getMailVersionsResponseParam{}
 

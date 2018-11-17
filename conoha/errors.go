@@ -21,7 +21,7 @@ type ErrUnauthorized struct {
 	message string
 }
 
-func NewErrorUnauthorized(message string) *ErrUnauthorized {
+func newErrorUnauthorized(message string) *ErrUnauthorized {
 	return &ErrUnauthorized{
 		message: message,
 	}

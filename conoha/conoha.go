@@ -10,6 +10,8 @@ import (
 )
 
 // Conoha represents ConoHa APi Client.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/
 type Conoha struct {
 	IdentityServiceUrl      string
 	AccountServiceUrl       string
@@ -33,6 +35,7 @@ type responseMeta struct {
 	StatusCode int
 }
 
+// NewConoha creates ConoHa API client.
 func NewConoha(
 	identityServiceUrl,
 	accountServiceUrl,
@@ -107,7 +110,7 @@ func (c *Conoha) execRequest(method, url string, body []byte) (*http.Response, e
 			} else {
 				msg = string(body)
 			}
-			err = NewErrorUnauthorized(msg)
+			err = newErrorUnauthorized(msg)
 		} else {
 			err = fmt.Errorf("Request failed: <%d> %s %s", resp.StatusCode, req.Method, req.URL)
 		}

@@ -3,12 +3,11 @@ package conoha
 import (
 	"testing"
 
-	"github.com/is2ei/conoha-api-go-client/test"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestConoha_ComputeServer(t *testing.T) {
-	ts := test.CreateMockServer(t, []string{
+	ts := createMockServer(t, []string{
 		"/compute/server",
 	})
 	defer ts.Close()
@@ -40,7 +39,7 @@ func TestConoha_ComputeServer(t *testing.T) {
 }
 
 func TestConoha_AddComputeServer(t *testing.T) {
-	ts := test.CreateMockServer(t, []string{
+	ts := createMockServer(t, []string{
 		"/compute/server_add",
 	})
 	defer ts.Close()
@@ -73,7 +72,7 @@ func TestConoha_AddComputeServer(t *testing.T) {
 }
 
 func TestConoha_DeleteComputeServer(t *testing.T) {
-	ts := test.CreateMockServer(t, []string{
+	ts := createMockServer(t, []string{
 		"/compute/server_delete",
 	})
 	defer ts.Close()
