@@ -38,7 +38,7 @@ func TestConoha_IdentityVersions(t *testing.T) {
 	assert.Equal(t, 1, len(versions))
 	assert.Equal(t, "v2.0", versions[0].Id)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 	assert.Equal(t, "GET", meta.Method)
 	assert.Equal(t, 300, meta.StatusCode)
 

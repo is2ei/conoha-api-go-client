@@ -6,7 +6,8 @@ type getComputeFlavorsResponseParam struct {
 	Flavors []*ComputeFlavor `json:"flavors"`
 }
 
-func (c *Conoha) ComputeFlavors() ([]*ComputeFlavor, *ResponseMeta, error) {
+// ComputeFlavors fetches plans list.
+func (c *Conoha) ComputeFlavors() ([]*ComputeFlavor, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/flavors"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)

@@ -20,9 +20,8 @@ var getAccountPaymentHistoryCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 				return err
-			} else {
-				client.Token = access.Token.Id
 			}
+			client.Token = access.Token.Id
 		}
 		paymentHistory, _, err := client.PaymentHistory()
 		if err != nil {

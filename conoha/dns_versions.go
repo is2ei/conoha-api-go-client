@@ -10,7 +10,7 @@ type dnsVersionsValues struct {
 	Values []Version `json:"values"`
 }
 
-func (c *Conoha) DnsVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) DnsVersions() ([]Version, *responseMeta, error) {
 	p := getDnsVersionsResponseParam{}
 
 	u := c.DnsServiceUrl

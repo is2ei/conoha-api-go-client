@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 )
 
+// ComputeServer represents the server information.
 type ComputeServer struct {
 	OsDcfDiskConfig                string                             `json:"OS-DCF:diskConfig,omitempty"`
 	OsExtAzAvailabilityZone        string                             `json:"OS-EXT-AZ:availability_zone,omitempty"`
@@ -38,10 +39,12 @@ type ComputeServer struct {
 	SecurityGroups                 []*ComputeSecurityGroup            `json:"security_groups,omitempty"`
 }
 
+// ComputeServerAddress represents the server's address information.
 type ComputeServerAddress struct {
 	Addr string `json:"addr"`
 }
 
+// ComputeServerMetadata represents the metadata for the server.
 type ComputeServerMetadata struct {
 	BackupId        string `json:"backup_id"`
 	BackupSet       string `json:"backup_set"`
@@ -62,14 +65,17 @@ type computeAddServerResponseParam struct {
 	Server ComputeServer `json:"server"`
 }
 
+// ComputeServerLink represents the link for the server.
 type ComputeServerLink struct {
 }
 
+// ComputeSecurityGroup represents the security group applied to the server.
 type ComputeSecurityGroup struct {
 	Name string `json:"name,omitempty"`
 }
 
-func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *ResponseMeta, error) {
+// ComputeServer fetches the server information.
+func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
@@ -81,13 +87,14 @@ func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *ResponseMeta, 
 	return &p.Server, meta, err
 }
 
+// AddComputeServer adds new server.
 func (c *Conoha) AddComputeServer(
 	imageRef,
 	flavorRef,
 	adminPass,
 	keyName,
 	securityGroupName string,
-) (*ComputeServer, *ResponseMeta, error) {
+) (*ComputeServer, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers"
 
 	if securityGroupName == "" {
@@ -119,7 +126,8 @@ func (c *Conoha) AddComputeServer(
 	return &p.Server, meta, err
 }
 
-func (c *Conoha) DeleteComputeServer(serverId string) (*ResponseMeta, error) {
+// DeleteComputeServer deletes the server.
+func (c *Conoha) DeleteComputeServer(serverId string) (*responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 
 	_, meta, err := c.buildAndExecRequest("DELETE", u, nil)

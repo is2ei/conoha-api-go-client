@@ -6,7 +6,7 @@ type getMailVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
-func (c *Conoha) MailVersion() (Version, *ResponseMeta, error) {
+func (c *Conoha) MailVersion() (Version, *responseMeta, error) {
 	p := getMailVersionResponseParam{}
 
 	u := c.MailServiceUrl + "/v1"

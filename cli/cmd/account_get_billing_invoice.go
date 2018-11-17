@@ -23,9 +23,8 @@ var getAccountBillingInvoiceCmd = &cobra.Command{
 			if err != nil {
 				fmt.Println(err)
 				return err
-			} else {
-				client.Token = access.Token.Id
 			}
+			client.Token = access.Token.Id
 		}
 		invoice, _, err := client.BillingInvoice(invoiceId)
 		if err != nil {

@@ -7,7 +7,7 @@ type getComputeServersResponseParam struct {
 }
 
 // ComputeServers fetches servers list. Each information is summarized.
-func (c *Conoha) ComputeServers() ([]*ComputeServer, *ResponseMeta, error) {
+func (c *Conoha) ComputeServers() ([]*ComputeServer, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers"
 
 	p := getComputeServersResponseParam{}

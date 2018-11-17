@@ -61,5 +61,5 @@ func TestConoha_ComputeImage(t *testing.T) {
 	assert.Equal(t, "ACTIVE", image.Status)
 	assert.Equal(t, "2015-05-07T08:14:47Z", image.Updated)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 }

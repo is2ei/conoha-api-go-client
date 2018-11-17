@@ -8,7 +8,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type Config struct {
+type config struct {
 	ServiceUrl *struct {
 		Identity      string `yaml:"identity"`
 		Account       string `yaml:"account"`
@@ -29,8 +29,8 @@ type Config struct {
 	} `yaml:"user"`
 }
 
-func loadConfig(path string) *Config {
-	var c *Config
+func loadConfig(path string) *config {
+	var c *config
 
 	file, err := ioutil.ReadFile(path)
 	if err != nil {

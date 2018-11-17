@@ -6,7 +6,7 @@ type getComputeVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
-func (c *Conoha) ComputeVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) ComputeVersions() ([]Version, *responseMeta, error) {
 	p := getComputeVersionsResponseParam{}
 
 	u := c.ComputeServiceUrl

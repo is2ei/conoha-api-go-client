@@ -6,6 +6,7 @@ type getComputeFlavorResponseParam struct {
 	Flavor *ComputeFlavor `json:"flavor"`
 }
 
+// ComputeFlavor represents the plan's information.
 type ComputeFlavor struct {
 	OsFlvDisabled          bool    `json:"OS-FLV-DISABLED:disabled"`
 	OsFlvExtData           int     `json:"OS-FLV-EXT-DATA:ephemeral"`
@@ -20,7 +21,8 @@ type ComputeFlavor struct {
 	Vcpus                  int     `json:"vcpus"`
 }
 
-func (c *Conoha) ComputeFlavor(flavorId string) (*ComputeFlavor, *ResponseMeta, error) {
+// ComputeFlavor fetches the plan's information.
+func (c *Conoha) ComputeFlavor(flavorId string) (*ComputeFlavor, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/flavors/" + flavorId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)

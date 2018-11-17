@@ -6,7 +6,7 @@ type getDatabaseVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
-func (c *Conoha) DatabaseVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) DatabaseVersions() ([]Version, *responseMeta, error) {
 	p := getDatabaseVersionsResponseParam{}
 
 	u := c.DatabaseServiceUrl

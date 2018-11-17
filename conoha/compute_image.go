@@ -6,6 +6,7 @@ type getComputeImageResponseParam struct {
 	Image *ComputeImage `json:"image"`
 }
 
+// ComputeImage represents the server information.
 type ComputeImage struct {
 	OsExtImgSize int                   `json:"OS-EXT-IMG-SIZE:size"`
 	Created      string                `json:"created"`
@@ -20,6 +21,7 @@ type ComputeImage struct {
 	Updated      string                `json:"updated"`
 }
 
+// ComputeImageMetadata represents metadata for the server.
 type ComputeImageMetadata struct {
 	DisplayOrder     string `json:"display_order"`
 	GncApp           string `json:"gnc_app"`
@@ -27,7 +29,8 @@ type ComputeImageMetadata struct {
 	OsType           string `json:"os_type"`
 }
 
-func (c *Conoha) ComputeImage(imageId string) (*ComputeImage, *ResponseMeta, error) {
+// ComputeImage fetches summarized information of the server.
+func (c *Conoha) ComputeImage(imageId string) (*ComputeImage, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/images/" + imageId
 
 	p := getComputeImageResponseParam{}

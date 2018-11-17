@@ -7,7 +7,7 @@ type getAccountOrderItemsResponseParam struct {
 }
 
 // OrderItems fetches the orders list.
-func (c *Conoha) OrderItems() ([]OrderItem, *ResponseMeta, error) {
+func (c *Conoha) OrderItems() ([]OrderItem, *responseMeta, error) {
 	p := getAccountOrderItemsResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/order-items"

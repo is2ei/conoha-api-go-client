@@ -24,7 +24,7 @@ type Item struct {
 	EndDate         string  `json:"EndDate"`
 }
 
-func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *ResponseMeta, error) {
+func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *responseMeta, error) {
 	p := getAccountBillingInvoiceResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/billing-invoices/" + invoiceId

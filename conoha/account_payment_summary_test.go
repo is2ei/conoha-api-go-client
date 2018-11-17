@@ -36,5 +36,5 @@ func TestConoha_AccountPaymentSummary(t *testing.T) {
 
 	assert.IsType(t, new(PaymentSummary), &paymentSummary)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 }

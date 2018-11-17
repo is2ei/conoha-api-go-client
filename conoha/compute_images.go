@@ -6,7 +6,8 @@ type getComputeImagesResponseParam struct {
 	Images []ComputeImage `json:"images"`
 }
 
-func (c *Conoha) ComputeImages() ([]ComputeImage, *ResponseMeta, error) {
+// ComputeImages fetches server images list.
+func (c *Conoha) ComputeImages() ([]ComputeImage, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/images"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)

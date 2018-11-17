@@ -3,14 +3,14 @@ package conoha
 import "encoding/json"
 
 type getComputeKeypairsResponseParam struct {
-	Keypairs []*KeypairParent `json:"keypairs"`
+	Keypairs []*keypairParent `json:"keypairs"`
 }
 
-type KeypairParent struct {
+type keypairParent struct {
 	Value *Keypair `json:"keypair"`
 }
 
-func (c *Conoha) ComputeKeypairs() ([]*KeypairParent, *ResponseMeta, error) {
+func (c *Conoha) ComputeKeypairs() ([]*keypairParent, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/os-keypairs"
 
 	p := getComputeKeypairsResponseParam{}

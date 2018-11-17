@@ -1,21 +1,22 @@
 package conoha
 
-type ErrorResponseBody struct {
-	Error        *ErrorMessage        `json:"error"`
-	Unauthorized *UnauthorizedMessage `json:"unauthorized"`
+type errorResponseBody struct {
+	Error        *errorMessage        `json:"error"`
+	Unauthorized *unauthorizedMessage `json:"unauthorized"`
 }
 
-type ErrorMessage struct {
+type errorMessage struct {
 	Title   string `json:"title"`
 	Message string `json:"message"`
 	Code    int    `json:"code"`
 }
 
-type UnauthorizedMessage struct {
+type unauthorizedMessage struct {
 	Message string `json:"message"`
 	Code    int    `json:"code"`
 }
 
+// ErrUnauthorized will used when unauthorized response returned.
 type ErrUnauthorized struct {
 	message string
 }

@@ -6,7 +6,7 @@ type getDatabaseVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
-func (c *Conoha) DatabaseVersion() (Version, *ResponseMeta, error) {
+func (c *Conoha) DatabaseVersion() (Version, *responseMeta, error) {
 	p := getDatabaseVersionResponseParam{}
 
 	u := c.DatabaseServiceUrl + "/v1"

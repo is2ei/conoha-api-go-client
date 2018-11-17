@@ -16,7 +16,7 @@ type IsoImage struct {
 }
 
 // IsoImages fetches ISO images list.
-func (c *Conoha) IsoImages() ([]*IsoImage, *ResponseMeta, error) {
+func (c *Conoha) IsoImages() ([]*IsoImage, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/iso-images"
 
 	p := getComputeIsoImagesResponseParam{}

@@ -53,5 +53,5 @@ func TestConoha_ComputeFlavor(t *testing.T) {
 	assert.Equal(t, "", flavor.Swap)
 	assert.Equal(t, 3, flavor.Vcpus)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 }

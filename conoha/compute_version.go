@@ -6,7 +6,8 @@ type getComputeVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
-func (c *Conoha) ComputeVersion() (Version, *ResponseMeta, error) {
+// ComputeVersion fetches Compute API information.
+func (c *Conoha) ComputeVersion() (Version, *responseMeta, error) {
 	p := getComputeVersionResponseParam{}
 
 	u := c.ComputeServiceUrl + "/v2"

@@ -19,7 +19,7 @@ type OrderItem struct {
 }
 
 // OrderItem fetches the order's detailed information.
-func (c *Conoha) OrderItem(itemId string) (OrderItem, *ResponseMeta, error) {
+func (c *Conoha) OrderItem(itemId string) (OrderItem, *responseMeta, error) {
 	p := getAccountOrderItemResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/order-items/" + itemId

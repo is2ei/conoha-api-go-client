@@ -9,6 +9,7 @@ import (
 	"runtime"
 )
 
+// Conoha represents ConoHa APi Client.
 type Conoha struct {
 	IdentityServiceUrl      string
 	AccountServiceUrl       string
@@ -27,7 +28,7 @@ type Conoha struct {
 	Client                  *http.Client
 }
 
-type ResponseMeta struct {
+type responseMeta struct {
 	Method     string
 	StatusCode int
 }
@@ -95,7 +96,7 @@ func (c *Conoha) execRequest(method, url string, body []byte) (*http.Response, e
 	if resp.StatusCode >= http.StatusBadRequest {
 		if resp.StatusCode == 401 {
 			body, _ := ioutil.ReadAll(resp.Body)
-			e := ErrorResponseBody{}
+			e := errorResponseBody{}
 			json.Unmarshal(body, &e)
 			_, file, line, _ := runtime.Caller(1)
 			var msg string
@@ -115,8 +116,8 @@ func (c *Conoha) execRequest(method, url string, body []byte) (*http.Response, e
 	return resp, err
 }
 
-func buildResponseMeta(resp *http.Response, method, u string) ResponseMeta {
-	meta := ResponseMeta{}
+func buildResponseMeta(resp *http.Response, method, u string) responseMeta {
+	meta := responseMeta{}
 
 	meta.Method = method
 	meta.StatusCode = resp.StatusCode
@@ -124,7 +125,7 @@ func buildResponseMeta(resp *http.Response, method, u string) ResponseMeta {
 	return meta
 }
 
-func (c *Conoha) buildAndExecRequest(method, u string, body []byte) ([]byte, *ResponseMeta, error) {
+func (c *Conoha) buildAndExecRequest(method, u string, body []byte) ([]byte, *responseMeta, error) {
 	resp, err := c.execRequest(method, u, body)
 	if err != nil {
 		return nil, nil, err

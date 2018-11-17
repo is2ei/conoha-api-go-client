@@ -18,7 +18,7 @@ type Keypair struct {
 	Id          int    `json:"id"`
 }
 
-func (c *Conoha) ComputeKeypair(keypairName string) (*Keypair, *ResponseMeta, error) {
+func (c *Conoha) ComputeKeypair(keypairName string) (*Keypair, *responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/os-keypairs/" + keypairName
 
 	p := getComputeKeypairResponseParam{}

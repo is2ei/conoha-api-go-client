@@ -6,7 +6,8 @@ type getIdentityVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
-func (c *Conoha) IdentityVersion() (Version, *ResponseMeta, error) {
+// IdentityVersion fetches Identity API information.
+func (c *Conoha) IdentityVersion() (Version, *responseMeta, error) {
 	version := getIdentityVersionResponseParam{}
 
 	u := c.IdentityServiceUrl + "/v2.0"

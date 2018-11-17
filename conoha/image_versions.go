@@ -6,7 +6,7 @@ type getImageVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
-func (c *Conoha) ImageVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) ImageVersions() ([]Version, *responseMeta, error) {
 	p := getImageVersionsResponseParam{}
 
 	u := c.ImageServiceUrl

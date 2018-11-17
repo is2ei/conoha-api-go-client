@@ -39,7 +39,7 @@ func TestConoha_AccountVersions(t *testing.T) {
 	assert.Equal(t, "CURRENT", versions[0].Status)
 	assert.Equal(t, "2015-05-12T09:00:00Z", versions[0].Updated)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 	assert.Equal(t, "GET", meta.Method)
 	assert.Equal(t, 300, meta.StatusCode)
 

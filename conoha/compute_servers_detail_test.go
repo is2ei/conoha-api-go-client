@@ -38,5 +38,5 @@ func TestConoha_ComputeServersDetail(t *testing.T) {
 	assert.Equal(t, "133.130.49.xxx", servers[0].AccessIPv4)
 	assert.Equal(t, "133.130.49.xxx", servers[0].Addresses["ext-133-130-48-xx-xx"][0].Addr)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 }

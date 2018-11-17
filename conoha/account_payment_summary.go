@@ -6,11 +6,13 @@ type getAccountPaymentSummaryResponseParam struct {
 	PaymentSummary PaymentSummary `json:"payment_summary"`
 }
 
+// PaymentSummary represencts summarized information of the payment.
 type PaymentSummary struct {
 	TotalDepositAmount int `json:"total_deposit_amount"`
 }
 
-func (c *Conoha) PaymentSummary() (PaymentSummary, *ResponseMeta, error) {
+// PaymentSummary fetches summarized information of the payment.
+func (c *Conoha) PaymentSummary() (PaymentSummary, *responseMeta, error) {
 	p := getAccountPaymentSummaryResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/payment-summary"

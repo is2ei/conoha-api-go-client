@@ -6,7 +6,7 @@ type getNetworkVersionsResponseParam struct {
 	Versions []Version `json:"versions"`
 }
 
-func (c *Conoha) NetworkVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) NetworkVersions() ([]Version, *responseMeta, error) {
 	p := getNetworkVersionsResponseParam{}
 
 	u := c.NetworkServiceUrl

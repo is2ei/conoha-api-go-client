@@ -10,7 +10,7 @@ import (
 	"testing"
 )
 
-type Mapping struct {
+type mapping struct {
 	Request struct {
 		Method string            `json:"method"`
 		Path   string            `json:"path"`
@@ -24,7 +24,7 @@ type Mapping struct {
 	} `json:"response"`
 }
 
-func (m *Mapping) Match(r *http.Request) bool {
+func (m *mapping) Match(r *http.Request) bool {
 	if m.Request.Method != r.Method {
 		return false
 	}
@@ -48,7 +48,7 @@ func getMocksDirs(t *testing.T) (string, string) {
 	return filepath.Join(mocksDir, "mappings"), filepath.Join(mocksDir, "files")
 }
 
-func serverFromMappings(t *testing.T, mappings []*Mapping) *httptest.Server {
+func serverFromMappings(t *testing.T, mappings []*mapping) *httptest.Server {
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		for _, m := range mappings {
 			if m.Match(r) {
@@ -71,7 +71,7 @@ func serverFromMappings(t *testing.T, mappings []*Mapping) *httptest.Server {
 func CreateMockServer(t *testing.T, mappingPaths []string) *httptest.Server {
 	mappingsDir, filesDir := getMocksDirs(t)
 
-	var mappings []*Mapping
+	var mappings []*mapping
 	for _, p := range mappingPaths {
 		f := filepath.Join(mappingsDir, fmt.Sprintf("%s.json", p))
 		contents, err := ioutil.ReadFile(f)
@@ -80,7 +80,7 @@ func CreateMockServer(t *testing.T, mappingPaths []string) *httptest.Server {
 			return nil
 		}
 
-		mapping := Mapping{}
+		mapping := mapping{}
 		err = json.Unmarshal(contents, &mapping)
 		if err != nil {
 			t.Fatal(fmt.Sprintf("an error occurred while unmarshalling mapping %s\n%v", f, err))

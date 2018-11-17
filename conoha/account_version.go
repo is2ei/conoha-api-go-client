@@ -6,7 +6,8 @@ type getAccountVersionResponseParam struct {
 	Version Version `json:"version"`
 }
 
-func (c *Conoha) AccountVersion() (Version, *ResponseMeta, error) {
+// AccouuntVersion fetches the Account API information.
+func (c *Conoha) AccountVersion() (Version, *responseMeta, error) {
 	p := getAccountVersionResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1"

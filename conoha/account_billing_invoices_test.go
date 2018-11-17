@@ -36,5 +36,5 @@ func TestConoha_AccountBillingInvoices(t *testing.T) {
 
 	assert.IsType(t, new([]BillingInvoice), &billingInvoices)
 
-	assert.IsType(t, new(ResponseMeta), meta)
+	assert.IsType(t, new(responseMeta), meta)
 }

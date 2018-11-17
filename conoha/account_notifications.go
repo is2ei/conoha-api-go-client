@@ -6,7 +6,8 @@ type getNotificationsResponseParam struct {
 	Notifications []Notification `json:"notifications"`
 }
 
-func (c *Conoha) Notifications() ([]Notification, *ResponseMeta, error) {
+// Notifications fetches notifications list for the user.
+func (c *Conoha) Notifications() ([]Notification, *responseMeta, error) {
 	p := getNotificationsResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/notifications"

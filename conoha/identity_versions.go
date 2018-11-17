@@ -12,7 +12,7 @@ type identityVersionsValues struct {
 	Values []Version `json:"values"`
 }
 
-func (c *Conoha) IdentityVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) IdentityVersions() ([]Version, *responseMeta, error) {
 	p := getIdentityVersionsResponseParam{}
 
 	u := c.IdentityServiceUrl

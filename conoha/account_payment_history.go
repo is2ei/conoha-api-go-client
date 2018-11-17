@@ -12,7 +12,7 @@ type PaymentHistory struct {
 	ReceivedDate  string `json:"received_date"`
 }
 
-func (c *Conoha) PaymentHistory() ([]PaymentHistory, *ResponseMeta, error) {
+func (c *Conoha) PaymentHistory() ([]PaymentHistory, *responseMeta, error) {
 	p := getAccountPaymentHistoryResponseParam{}
 
 	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/payment-history"
