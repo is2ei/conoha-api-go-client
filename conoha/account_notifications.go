@@ -7,6 +7,8 @@ type getNotificationsResponseParam struct {
 }
 
 // Notifications fetches notifications list for the user.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/account-informations-list.html
 func (c *Conoha) Notifications() ([]Notification, *responseMeta, error) {
 	p := getNotificationsResponseParam{}
 

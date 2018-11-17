@@ -27,6 +27,8 @@ type BillingInvoiceItem struct {
 }
 
 // BillingInvoice fetches invoice information.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/account-billing-invoices-detail-specified.html
 func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *responseMeta, error) {
 	p := getAccountBillingInvoiceResponseParam{}
 

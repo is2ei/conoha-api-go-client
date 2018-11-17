@@ -7,6 +7,8 @@ type getAccountOrderItemsResponseParam struct {
 }
 
 // OrderItems fetches the orders list.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/account-order-item-list.html
 func (c *Conoha) OrderItems() ([]OrderItem, *responseMeta, error) {
 	p := getAccountOrderItemsResponseParam{}
 

@@ -14,6 +14,8 @@ type PaymentHistory struct {
 }
 
 // PaymentHistory fetches payment history.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/account-payment-histories.html
 func (c *Conoha) PaymentHistory() ([]PaymentHistory, *responseMeta, error) {
 	p := getAccountPaymentHistoryResponseParam{}
 

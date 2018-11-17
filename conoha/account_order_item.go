@@ -19,6 +19,8 @@ type OrderItem struct {
 }
 
 // OrderItem fetches the order's detailed information.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/account-order-item-detail-specified.html
 func (c *Conoha) OrderItem(itemId string) (OrderItem, *responseMeta, error) {
 	p := getAccountOrderItemResponseParam{}
 
