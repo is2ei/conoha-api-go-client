@@ -1,0 +1,158 @@
+{
+    "flavors": [
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "2gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 2048,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 3
+        },
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "16gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 16384,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 8
+        },
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "4gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 4096,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 4
+        },
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "1gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 1024,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 2
+        },
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "8gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 8192,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 6
+        },
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "32gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 32768,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 12
+        },
+        {
+            "OS-FLV-DISABLED:disabled": false,
+            "OS-FLV-EXT-DATA:ephemeral": 0,
+            "disk": 50,
+            "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+            "links": [
+                {
+                    "href": "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "self"
+                },
+                {
+                    "href": "https://compute.tyo1.conoha.io/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "64gb-flavor",
+            "os-flavor-access:is_public": true,
+            "ram": 65536,
+            "rxtx_factor": 1,
+            "swap": "",
+            "vcpus": 24
+        }
+    ]
+}
