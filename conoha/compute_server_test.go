@@ -100,3 +100,34 @@ func TestConoha_DeleteComputeServer(t *testing.T) {
 
 	assert.IsType(t, new(responseMeta), meta)
 }
+
+func TestConoha_RebootComputeServer(t *testing.T) {
+	ts := createMockServer(t, []string{
+		"/compute/server_reboot",
+	})
+	defer ts.Close()
+
+	conoha := NewConoha(
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		ts.URL,
+		"username",
+		"password",
+		"tenant_id",
+		"token",
+	)
+
+	meta, err := conoha.RebootComputeServer("server_id", true)
+
+	assert.NoError(t, err)
+
+	assert.IsType(t, new(responseMeta), meta)
+
+}

@@ -2,6 +2,7 @@ package conoha
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 // ComputeServer represents the server information.
@@ -63,6 +64,14 @@ type computeAddServerRequestParam struct {
 
 type computeAddServerResponseParam struct {
 	Server ComputeServer `json:"server"`
+}
+
+type reboot struct {
+	Type string `json:"type"`
+}
+
+type computeRebootServerRequestParam struct {
+	Reboot reboot `json:"reboot"`
 }
 
 // ComputeServerLink represents the link for the server.
@@ -137,6 +146,34 @@ func (c *Conoha) DeleteComputeServer(serverId string) (*responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 
 	_, meta, err := c.buildAndExecRequest("DELETE", u, nil)
+
+	return meta, err
+}
+
+// RebootComputeServer reboots the server.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-reboot_vm.html
+func (c *Conoha) RebootComputeServer(serverId string, isSoft bool) (*responseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceUrl, c.TenantId, serverId)
+
+	var t string
+	if isSoft {
+		t = "SOFT"
+	} else {
+		t = "HARD"
+	}
+
+	r := reboot{
+		Type: t,
+	}
+
+	p := computeRebootServerRequestParam{
+		Reboot: r,
+	}
+
+	body, _ := json.Marshal(p)
+
+	_, meta, err := c.buildAndExecRequest("POST", u, body)
 
 	return meta, err
 }
