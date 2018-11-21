@@ -1,6 +1,9 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeVersionResponseParam struct {
 	Version Version `json:"version"`
@@ -12,7 +15,7 @@ type getComputeVersionResponseParam struct {
 func (c *Conoha) ComputeVersion() (Version, *responseMeta, error) {
 	p := getComputeVersionResponseParam{}
 
-	u := c.ComputeServiceUrl + "/v2"
+	u := fmt.Sprintf("%s/v2", c.ComputeServiceUrl)
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
