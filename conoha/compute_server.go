@@ -74,6 +74,10 @@ type computeStartServerRequestParam struct {
 	OsStart string `json:"os-start"`
 }
 
+type computeStopServerRequestParam struct {
+	OsStop string `json:"os-stop"`
+}
+
 type computeRebootServerRequestParam struct {
 	Reboot reboot `json:"reboot"`
 }
@@ -162,6 +166,22 @@ func (c *Conoha) StartComputeServer(serverId string) (*responseMeta, error) {
 
 	param := computeStartServerRequestParam{
 		OsStart: "null",
+	}
+	body, _ := json.Marshal(param)
+
+	_, meta, err := c.buildAndExecRequest("POST", u, body)
+
+	return meta, err
+}
+
+// StopComputeServer stops the server.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-stop_cleanly_vm.html
+func (c *Conoha) StopComputeServer(serverId string) (*responseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceUrl, c.TenantId, serverId)
+
+	param := computeStopServerRequestParam{
+		OsStop: "null",
 	}
 	body, _ := json.Marshal(param)
 
