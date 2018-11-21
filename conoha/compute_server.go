@@ -70,6 +70,10 @@ type reboot struct {
 	Type string `json:"type"`
 }
 
+type computeStartServerRequestParam struct {
+	OsStart string `json:"os-start"`
+}
+
 type computeRebootServerRequestParam struct {
 	Reboot reboot `json:"reboot"`
 }
@@ -146,6 +150,22 @@ func (c *Conoha) DeleteComputeServer(serverId string) (*responseMeta, error) {
 	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/servers/" + serverId
 
 	_, meta, err := c.buildAndExecRequest("DELETE", u, nil)
+
+	return meta, err
+}
+
+// StartComputeServer starts the serer.
+//
+// ConoHa API docs: https://www.conoha.jp/docs/compute-power_on_vm.html
+func (c *Conoha) StartComputeServer(serverId string) (*responseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceUrl, c.TenantId, serverId)
+
+	param := computeStartServerRequestParam{
+		OsStart: "null",
+	}
+	body, _ := json.Marshal(param)
+
+	_, meta, err := c.buildAndExecRequest("POST", u, body)
 
 	return meta, err
 }
