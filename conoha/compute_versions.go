@@ -3,13 +3,13 @@ package conoha
 import "encoding/json"
 
 type getComputeVersionsResponseParam struct {
-	Versions []Version `json:"versions"`
+	Versions []*Version `json:"versions"`
 }
 
 // ComputeVersions fetches Compute API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_version_list.html
-func (c *Conoha) ComputeVersions() ([]Version, *responseMeta, error) {
+func (c *Conoha) ComputeVersions() ([]*Version, *responseMeta, error) {
 	p := getComputeVersionsResponseParam{}
 
 	u := c.ComputeServiceUrl
