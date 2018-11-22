@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestConoha_IdentityVersion(t *testing.T) {
+func TestConoha_IdentityApiVersion(t *testing.T) {
 	ts := createMockServer(t, []string{
 		"identity/version",
 	})
@@ -29,11 +29,11 @@ func TestConoha_IdentityVersion(t *testing.T) {
 		"token",
 	)
 
-	version, meta, err := conoha.IdentityVersion()
+	version, meta, err := conoha.IdentityApiVersion()
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(Version), &version)
+	assert.IsType(t, new(Version), version)
 	assert.Equal(t, "stable", version.Status)
 	assert.Equal(t, "2015-05-12T09:00:00Z", version.Updated)
 	assert.Equal(t, 2, len(version.MediaTypes))
