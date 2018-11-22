@@ -4,23 +4,24 @@ import (
 	"encoding/json"
 )
 
-type getIdentityVersionsResponseParam struct {
+type getIdentityApiVersionsResponseParam struct {
 	Versions identityVersionsValues `json:"versions"`
 }
 
 type identityVersionsValues struct {
-	Values []Version `json:"values"`
+	Values []*Version `json:"values"`
 }
 
 // IdentityVersions fetches Identity API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/identity-get_version_list.html
-func (c *Conoha) IdentityVersions() ([]Version, *responseMeta, error) {
-	p := getIdentityVersionsResponseParam{}
+func (c *Conoha) IdentityApiVersions() ([]*Version, *responseMeta, error) {
 
-	u := c.IdentityServiceUrl
+	apiEndPoint := c.IdentityServiceUrl
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	p := getIdentityApiVersionsResponseParam{}
+
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
