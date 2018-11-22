@@ -26,7 +26,7 @@ type postIdentityTokenResponseParam struct {
 type access struct {
 	Token          *Token                 `json:"token"`
 	ServiceCatalog []*serviceCatalog      `json:"serviceCatalog"`
-	User           *User                  `json:"user"`
+	User           *user                  `json:"user"`
 	Metadata       *identityTokenMetadata `json:"metadata"`
 }
 
@@ -56,8 +56,7 @@ type endpoint struct {
 	PublicURL string `json:"publicURL"`
 }
 
-// User represents the user.
-type User struct {
+type user struct {
 	Username   string       `json:"username"`
 	RolesLinks []*rolesLink `json:"roles_links"`
 	Id         string       `json:"id"`
@@ -93,12 +92,13 @@ func (c *Conoha) IdentityToken() (*access, *responseMeta, error) {
 		Auth: auth,
 	}
 
-	u := fmt.Sprintf("%s/v2.0/tokens", c.IdentityServiceUrl)
+	apiEndPoint := fmt.Sprintf("%s/v2.0/tokens", c.IdentityServiceUrl)
 
 	body, _ := json.Marshal(param)
 
-	contents, meta, err := c.buildAndExecRequest("POST", u, body)
 	p := postIdentityTokenResponseParam{}
+
+	contents, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

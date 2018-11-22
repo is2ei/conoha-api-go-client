@@ -58,7 +58,7 @@ func TestConoha_IdentityToken(t *testing.T) {
 	assert.Equal(t, "region01", a.ServiceCatalog[0].Endpoints[0].Region)
 	assert.Equal(t, "https://identity.region01.conoha.io/v2.0", a.ServiceCatalog[0].Endpoints[0].PublicURL)
 
-	assert.IsType(t, new(User), a.User)
+	assert.IsType(t, new(user), a.User)
 	assert.Equal(t, "example00000000", a.User.Username)
 
 	assert.IsType(t, new([]*rolesLink), &a.User.RolesLinks)
