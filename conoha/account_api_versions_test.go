@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestConoha_AccountVersions(t *testing.T) {
+func TestConoha_AccountApiVersions(t *testing.T) {
 	ts := createMockServer(t, []string{
 		"/account/versions",
 	})
@@ -29,11 +29,11 @@ func TestConoha_AccountVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.AccountVersions()
+	versions, meta, err := conoha.AccountApiVersions()
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new([]Version), &versions)
+	assert.IsType(t, new([]*Version), &versions)
 	assert.Equal(t, 1, len(versions))
 	assert.Equal(t, "CURRENT", versions[0].Status)
 	assert.Equal(t, "2015-05-12T09:00:00Z", versions[0].Updated)
