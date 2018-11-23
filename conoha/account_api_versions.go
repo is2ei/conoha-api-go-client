@@ -6,7 +6,7 @@ type getAccountApiVersionsResponseParam struct {
 	Versions []*Version `json:"versions"`
 }
 
-// AccountVersions fetches Account API versions list.
+// AccountApiVersions fetches Account API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-get_version_list.html
 func (c *Conoha) AccountApiVersions() ([]*Version, *responseMeta, error) {

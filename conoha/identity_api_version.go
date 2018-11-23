@@ -9,7 +9,7 @@ type getIdentityVersionResponseParam struct {
 	Version *Version `json:"version"`
 }
 
-// IdentityVersion fetches Identity API information.
+// IdentityApiVersion fetches Identity API information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/identity-get_version_detail.html
 func (c *Conoha) IdentityApiVersion() (*Version, *responseMeta, error) {
