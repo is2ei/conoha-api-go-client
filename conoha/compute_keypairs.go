@@ -14,7 +14,7 @@ type keypairParent struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_keypairs.html
 func (c *Conoha) ComputeKeypairs() ([]*keypairParent, *responseMeta, error) {
-	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/os-keypairs"
+	u := c.ComputeServiceURL + "/v2/" + c.TenantId + "/os-keypairs"
 
 	p := getComputeKeypairsResponseParam{}
 

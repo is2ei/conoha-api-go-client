@@ -25,7 +25,7 @@ type ComputeFlavor struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_flavors_detail_specified.html
 func (c *Conoha) ComputeFlavor(flavorId string) (*ComputeFlavor, *responseMeta, error) {
-	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/flavors/" + flavorId
+	u := c.ComputeServiceURL + "/v2/" + c.TenantId + "/flavors/" + flavorId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 

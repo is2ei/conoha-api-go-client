@@ -19,7 +19,7 @@ type IsoImage struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-iso-list-show.html
 func (c *Conoha) IsoImages() ([]*IsoImage, *responseMeta, error) {
-	u := c.ComputeServiceUrl + "/v2/" + c.TenantId + "/iso-images"
+	u := c.ComputeServiceURL + "/v2/" + c.TenantId + "/iso-images"
 
 	p := getComputeIsoImagesResponseParam{}
 

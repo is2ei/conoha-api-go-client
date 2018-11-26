@@ -12,7 +12,7 @@ type getComputeVersionsResponseParam struct {
 func (c *Conoha) ComputeVersions() ([]*Version, *responseMeta, error) {
 	p := getComputeVersionsResponseParam{}
 
-	u := c.ComputeServiceUrl
+	u := c.ComputeServiceURL
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

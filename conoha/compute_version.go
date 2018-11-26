@@ -15,7 +15,7 @@ type getComputeVersionResponseParam struct {
 func (c *Conoha) ComputeVersion() (Version, *responseMeta, error) {
 	p := getComputeVersionResponseParam{}
 
-	u := fmt.Sprintf("%s/v2", c.ComputeServiceUrl)
+	u := fmt.Sprintf("%s/v2", c.ComputeServiceURL)
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
