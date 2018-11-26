@@ -9,7 +9,7 @@ import (
 )
 
 type config struct {
-	ServiceUrl *struct {
+	ServiceURL *struct {
 		Identity      string `yaml:"identity"`
 		Account       string `yaml:"account"`
 		Compute       string `yaml:"compute"`
