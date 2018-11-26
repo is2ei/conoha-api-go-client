@@ -92,7 +92,7 @@ func (c *Conoha) IdentityToken() (*access, *responseMeta, error) {
 		Auth: auth,
 	}
 
-	apiEndPoint := fmt.Sprintf("%s/v2.0/tokens", c.IdentityServiceUrl)
+	apiEndPoint := fmt.Sprintf("%s/v2.0/tokens", c.IdentityServiceURL)
 
 	body, _ := json.Marshal(param)
 

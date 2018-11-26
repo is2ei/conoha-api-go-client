@@ -14,7 +14,7 @@ type getIdentityVersionResponseParam struct {
 // ConoHa API docs: https://www.conoha.jp/docs/identity-get_version_detail.html
 func (c *Conoha) IdentityApiVersion() (*Version, *responseMeta, error) {
 
-	apiEndPoint := fmt.Sprintf("%s/v2.0", c.IdentityServiceUrl)
+	apiEndPoint := fmt.Sprintf("%s/v2.0", c.IdentityServiceURL)
 
 	p := getIdentityVersionResponseParam{}
 

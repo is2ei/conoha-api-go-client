@@ -13,7 +13,7 @@ import (
 //
 // ConoHa API docs: https://www.conoha.jp/docs/
 type Conoha struct {
-	IdentityServiceUrl      string
+	IdentityServiceURL      string
 	AccountServiceUrl       string
 	ComputeServiceUrl       string
 	BlockStorageServiceUrl  string
@@ -56,7 +56,7 @@ func NewConoha(
 	client := &http.Client{}
 
 	return &Conoha{
-		IdentityServiceUrl:      identityServiceUrl,
+		IdentityServiceURL:      identityServiceUrl,
 		AccountServiceUrl:       accountServiceUrl,
 		ComputeServiceUrl:       computeServiceUrl,
 		BlockStorageServiceUrl:  blockStorageServiceUrl,

@@ -137,7 +137,7 @@ func TestNewConoha(t *testing.T) {
 	assert.IsType(t, new(Conoha), conoha)
 	assert.Equal(
 		t,
-		conoha.IdentityServiceUrl,
+		conoha.IdentityServiceURL,
 		"http://identity_service_url",
 	)
 	assert.Equal(

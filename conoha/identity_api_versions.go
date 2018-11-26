@@ -17,7 +17,7 @@ type identityVersionsValues struct {
 // ConoHa API docs: https://www.conoha.jp/docs/identity-get_version_list.html
 func (c *Conoha) IdentityApiVersions() ([]*Version, *responseMeta, error) {
 
-	apiEndPoint := c.IdentityServiceUrl
+	apiEndPoint := c.IdentityServiceURL
 
 	p := getIdentityApiVersionsResponseParam{}
 
