@@ -8,10 +8,10 @@ import (
 )
 
 func init() {
-	dnsCmd.AddCommand(getDnsVersionsCmd)
+	dnsCmd.AddCommand(getDNSVersionsCmd)
 }
 
-var getDnsVersionsCmd = &cobra.Command{
+var getDNSVersionsCmd = &cobra.Command{
 	Use:   "versions",
 	Short: "Get API versions",
 	RunE: func(cmd *cobra.Command, args []string) error {
