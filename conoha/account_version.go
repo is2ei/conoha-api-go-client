@@ -12,7 +12,7 @@ type getAccountVersionResponseParam struct {
 func (c *Conoha) AccountVersion() (Version, *responseMeta, error) {
 	p := getAccountVersionResponseParam{}
 
-	u := c.AccountServiceUrl + "/v1"
+	u := c.AccountServiceURL + "/v1"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

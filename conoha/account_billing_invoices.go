@@ -12,7 +12,7 @@ type getAccountBillingInvoicesResponseParam struct {
 func (c *Conoha) BillingInvoices() ([]BillingInvoice, *responseMeta, error) {
 	p := getAccountBillingInvoicesResponseParam{}
 
-	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/billing-invoices"
+	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/billing-invoices"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

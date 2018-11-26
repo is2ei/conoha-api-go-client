@@ -14,7 +14,7 @@ import (
 // ConoHa API docs: https://www.conoha.jp/docs/
 type Conoha struct {
 	IdentityServiceURL      string
-	AccountServiceUrl       string
+	AccountServiceURL       string
 	ComputeServiceUrl       string
 	BlockStorageServiceUrl  string
 	ImageServiceUrl         string
@@ -57,7 +57,7 @@ func NewConoha(
 
 	return &Conoha{
 		IdentityServiceURL:      identityServiceUrl,
-		AccountServiceUrl:       accountServiceUrl,
+		AccountServiceURL:       accountServiceUrl,
 		ComputeServiceUrl:       computeServiceUrl,
 		BlockStorageServiceUrl:  blockStorageServiceUrl,
 		ImageServiceUrl:         imageServiceUrl,

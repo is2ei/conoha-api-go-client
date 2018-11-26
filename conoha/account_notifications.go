@@ -12,7 +12,7 @@ type getNotificationsResponseParam struct {
 func (c *Conoha) Notifications() ([]Notification, *responseMeta, error) {
 	p := getNotificationsResponseParam{}
 
-	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/notifications"
+	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/notifications"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

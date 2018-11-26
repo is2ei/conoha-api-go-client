@@ -11,7 +11,7 @@ type getAccountApiVersionsResponseParam struct {
 // ConoHa API docs: https://www.conoha.jp/docs/account-get_version_list.html
 func (c *Conoha) AccountApiVersions() ([]*Version, *responseMeta, error) {
 
-	apiEndPoint := c.AccountServiceUrl
+	apiEndPoint := c.AccountServiceURL
 
 	p := getAccountApiVersionsResponseParam{}
 

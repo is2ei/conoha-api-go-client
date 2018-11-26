@@ -17,7 +17,7 @@ type PaymentSummary struct {
 func (c *Conoha) PaymentSummary() (PaymentSummary, *responseMeta, error) {
 	p := getAccountPaymentSummaryResponseParam{}
 
-	u := c.AccountServiceUrl + "/v1/" + c.TenantId + "/payment-summary"
+	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/payment-summary"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
