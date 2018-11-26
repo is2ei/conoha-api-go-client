@@ -22,7 +22,7 @@ type Conoha struct {
 	ObjectStorageServiceURL string
 	DatabaseServiceURL      string
 	DNSServiceURL           string
-	MailServiceUrl          string
+	MailServiceURL          string
 	Username                string
 	Password                string
 	TenantId                string
@@ -65,7 +65,7 @@ func NewConoha(
 		ObjectStorageServiceURL: objectStorageServiceUrl,
 		DatabaseServiceURL:      databaseServiceUrl,
 		DNSServiceURL:           dnsServiceUrl,
-		MailServiceUrl:          mailServiceUrl,
+		MailServiceURL:          mailServiceUrl,
 		Username:                username,
 		Password:                password,
 		TenantId:                tenantId,

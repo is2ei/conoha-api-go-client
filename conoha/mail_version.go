@@ -12,7 +12,7 @@ type getMailVersionResponseParam struct {
 func (c *Conoha) MailVersion() (Version, *responseMeta, error) {
 	p := getMailVersionResponseParam{}
 
-	u := c.MailServiceUrl + "/v1"
+	u := c.MailServiceURL + "/v1"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
