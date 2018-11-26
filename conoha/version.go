@@ -5,6 +5,6 @@ type Version struct {
 	Status     string       `json:"status"`
 	Updated    string       `json:"updated"`
 	MediaTypes []*mediaType `json:"media-types"`
-	Id         string       `json:"id"`
+	ID         string       `json:"id"`
 	Links      []Link       `json:"links"`
 }

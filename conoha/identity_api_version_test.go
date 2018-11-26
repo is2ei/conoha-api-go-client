@@ -37,7 +37,7 @@ func TestConoha_IdentityApiVersion(t *testing.T) {
 	assert.Equal(t, "stable", version.Status)
 	assert.Equal(t, "2015-05-12T09:00:00Z", version.Updated)
 	assert.Equal(t, 2, len(version.MediaTypes))
-	assert.Equal(t, "v2.0", version.Id)
+	assert.Equal(t, "v2.0", version.ID)
 	assert.Equal(t, 2, len(version.Links))
 
 	assert.IsType(t, new(responseMeta), meta)
