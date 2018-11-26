@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var itemId string
+var itemID string
 
 func init() {
-	getAccountOrderItemCmd.Flags().StringVarP(&itemId, "item-id", "i", "", "Item ID")
+	getAccountOrderItemCmd.Flags().StringVarP(&itemID, "item-id", "i", "", "Item ID")
 	accountCmd.AddCommand(getAccountOrderItemCmd)
 }
 
@@ -26,7 +26,7 @@ var getAccountOrderItemCmd = &cobra.Command{
 			}
 			client.Token = access.Token.Id
 		}
-		item, _, err := client.OrderItem(itemId)
+		item, _, err := client.OrderItem(itemID)
 		if err != nil {
 			fmt.Println(err)
 			return err
