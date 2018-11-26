@@ -44,7 +44,7 @@ var rootCmd = &cobra.Command{
 			config.ServiceURL.Mail,
 			config.User.Username,
 			config.User.Password,
-			config.User.TenantId,
+			config.User.TenantID,
 			config.User.Token,
 		)
 	},

@@ -24,7 +24,7 @@ type config struct {
 	User *struct {
 		Username string `yaml:"username"`
 		Password string `yaml:"password"`
-		TenantId string `yaml:"tenant_id"`
+		TenantID string `yaml:"tenant_id"`
 		Token    string `yaml:"token"`
 	} `yaml:"user"`
 }
