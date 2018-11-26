@@ -30,7 +30,8 @@ type Conoha struct {
 	Client                  *http.Client
 }
 
-type responseMeta struct {
+// ResponseMeta represents response information (i.e status code).
+type ResponseMeta struct {
 	Method     string
 	StatusCode int
 }
@@ -119,8 +120,8 @@ func (c *Conoha) execRequest(method, url string, body []byte) (*http.Response, e
 	return resp, err
 }
 
-func buildResponseMeta(resp *http.Response, method, u string) responseMeta {
-	meta := responseMeta{}
+func buildResponseMeta(resp *http.Response, method, u string) ResponseMeta {
+	meta := ResponseMeta{}
 
 	meta.Method = method
 	meta.StatusCode = resp.StatusCode
@@ -128,7 +129,7 @@ func buildResponseMeta(resp *http.Response, method, u string) responseMeta {
 	return meta
 }
 
-func (c *Conoha) buildAndExecRequest(method, u string, body []byte) ([]byte, *responseMeta, error) {
+func (c *Conoha) buildAndExecRequest(method, u string, body []byte) ([]byte, *ResponseMeta, error) {
 	resp, err := c.execRequest(method, u, body)
 	if err != nil {
 		return nil, nil, err

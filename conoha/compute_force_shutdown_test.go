@@ -33,5 +33,5 @@ func TestConoha_ForceShutdownServer(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

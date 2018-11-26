@@ -9,7 +9,7 @@ type getComputeImagesResponseParam struct {
 // ComputeImages fetches server images list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_images_list.html
-func (c *Conoha) ComputeImages() ([]ComputeImage, *responseMeta, error) {
+func (c *Conoha) ComputeImages() ([]ComputeImage, *ResponseMeta, error) {
 	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/images"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)

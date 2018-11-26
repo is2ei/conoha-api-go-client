@@ -35,5 +35,5 @@ func TestConoha_ComputeFlavorsDetail(t *testing.T) {
 
 	assert.IsType(t, new([]*ComputeFlavor), &flavors)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

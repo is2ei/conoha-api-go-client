@@ -9,7 +9,7 @@ type getDatabaseVersionsResponseParam struct {
 // DatabaseVersions fetches Database API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/paas-database-get-version-list.html
-func (c *Conoha) DatabaseVersions() ([]Version, *responseMeta, error) {
+func (c *Conoha) DatabaseVersions() ([]Version, *ResponseMeta, error) {
 	p := getDatabaseVersionsResponseParam{}
 
 	u := c.DatabaseServiceURL

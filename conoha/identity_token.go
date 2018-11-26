@@ -79,7 +79,7 @@ type identityTokenMetadata struct {
 // IdentityToken issues ConoHa API access token.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/identity-post_tokens.html
-func (c *Conoha) IdentityToken() (*access, *responseMeta, error) {
+func (c *Conoha) IdentityToken() (*access, *ResponseMeta, error) {
 	passwordCredentials := identityPasswordCredentials{
 		Username: c.Username,
 		Password: c.Password,

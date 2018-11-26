@@ -35,7 +35,7 @@ func TestConoha_ComputeServer(t *testing.T) {
 
 	assert.IsType(t, new(ComputeServer), server)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }
 
 func TestConoha_AddComputeServer(t *testing.T) {
@@ -67,7 +67,7 @@ func TestConoha_AddComputeServer(t *testing.T) {
 
 	assert.IsType(t, new(ComputeServer), server)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 	assert.Equal(t, 202, meta.StatusCode)
 }
 
@@ -98,7 +98,7 @@ func TestConoha_DeleteComputeServer(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }
 
 func TestConoha_StartComputeServer(t *testing.T) {
@@ -128,7 +128,7 @@ func TestConoha_StartComputeServer(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }
 
 func TestConoha_StopComputeServer(t *testing.T) {
@@ -158,7 +158,7 @@ func TestConoha_StopComputeServer(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 
 }
 
@@ -189,5 +189,5 @@ func TestConoha_RebootComputeServer(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

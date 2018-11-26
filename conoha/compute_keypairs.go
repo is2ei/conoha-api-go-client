@@ -13,7 +13,7 @@ type keypairParent struct {
 // ComputeKeypairs fetches key pairs list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_keypairs.html
-func (c *Conoha) ComputeKeypairs() ([]*keypairParent, *responseMeta, error) {
+func (c *Conoha) ComputeKeypairs() ([]*keypairParent, *ResponseMeta, error) {
 	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/os-keypairs"
 
 	p := getComputeKeypairsResponseParam{}

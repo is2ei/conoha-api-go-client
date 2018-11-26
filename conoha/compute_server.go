@@ -94,7 +94,7 @@ type ComputeSecurityGroup struct {
 // ComputeServer fetches the server information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_detail_specified.html
-func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *responseMeta, error) {
+func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *ResponseMeta, error) {
 	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
@@ -115,7 +115,7 @@ func (c *Conoha) AddComputeServer(
 	adminPass,
 	keyName,
 	securityGroupName string,
-) (*ComputeServer, *responseMeta, error) {
+) (*ComputeServer, *ResponseMeta, error) {
 	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers"
 
 	if securityGroupName == "" {
@@ -150,7 +150,7 @@ func (c *Conoha) AddComputeServer(
 // DeleteComputeServer deletes the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-delete_vm.html
-func (c *Conoha) DeleteComputeServer(serverId string) (*responseMeta, error) {
+func (c *Conoha) DeleteComputeServer(serverId string) (*ResponseMeta, error) {
 	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverId
 
 	_, meta, err := c.buildAndExecRequest("DELETE", u, nil)
@@ -161,7 +161,7 @@ func (c *Conoha) DeleteComputeServer(serverId string) (*responseMeta, error) {
 // StartComputeServer starts the serer.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-power_on_vm.html
-func (c *Conoha) StartComputeServer(serverId string) (*responseMeta, error) {
+func (c *Conoha) StartComputeServer(serverId string) (*ResponseMeta, error) {
 	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
 
 	param := computeStartServerRequestParam{
@@ -177,7 +177,7 @@ func (c *Conoha) StartComputeServer(serverId string) (*responseMeta, error) {
 // StopComputeServer stops the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-stop_cleanly_vm.html
-func (c *Conoha) StopComputeServer(serverId string) (*responseMeta, error) {
+func (c *Conoha) StopComputeServer(serverId string) (*ResponseMeta, error) {
 	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
 
 	param := computeStopServerRequestParam{
@@ -193,7 +193,7 @@ func (c *Conoha) StopComputeServer(serverId string) (*responseMeta, error) {
 // RebootComputeServer reboots the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-reboot_vm.html
-func (c *Conoha) RebootComputeServer(serverId string, isSoft bool) (*responseMeta, error) {
+func (c *Conoha) RebootComputeServer(serverId string, isSoft bool) (*ResponseMeta, error) {
 	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
 
 	var t string

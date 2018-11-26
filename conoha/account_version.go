@@ -9,7 +9,7 @@ type getAccountVersionResponseParam struct {
 // AccountVersion fetches the Account API information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-get_version_detail.html
-func (c *Conoha) AccountVersion() (Version, *responseMeta, error) {
+func (c *Conoha) AccountVersion() (Version, *ResponseMeta, error) {
 	p := getAccountVersionResponseParam{}
 
 	u := c.AccountServiceURL + "/v1"

@@ -9,7 +9,7 @@ type getAccountBillingInvoicesResponseParam struct {
 // BillingInvoices fetches invoices list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-billing-invoices-list.html
-func (c *Conoha) BillingInvoices() ([]BillingInvoice, *responseMeta, error) {
+func (c *Conoha) BillingInvoices() ([]BillingInvoice, *ResponseMeta, error) {
 	p := getAccountBillingInvoicesResponseParam{}
 
 	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/billing-invoices"

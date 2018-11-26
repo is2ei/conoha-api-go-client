@@ -14,7 +14,7 @@ type PaymentSummary struct {
 // PaymentSummary fetches summarized information of the payment.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-payment-summary.html
-func (c *Conoha) PaymentSummary() (PaymentSummary, *responseMeta, error) {
+func (c *Conoha) PaymentSummary() (PaymentSummary, *ResponseMeta, error) {
 	p := getAccountPaymentSummaryResponseParam{}
 
 	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/payment-summary"

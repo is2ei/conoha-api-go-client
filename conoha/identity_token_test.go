@@ -76,6 +76,6 @@ func TestConoha_IdentityToken(t *testing.T) {
 	assert.IsType(t, new([]string), &a.Metadata.Roles)
 	assert.Equal(t, "sample00d88246078f2bexample788f7", a.Metadata.Roles[0])
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 	assert.Equal(t, 200, meta.StatusCode)
 }

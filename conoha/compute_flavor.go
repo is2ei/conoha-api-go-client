@@ -24,7 +24,7 @@ type ComputeFlavor struct {
 // ComputeFlavor fetches the plan's information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_flavors_detail_specified.html
-func (c *Conoha) ComputeFlavor(flavorId string) (*ComputeFlavor, *responseMeta, error) {
+func (c *Conoha) ComputeFlavor(flavorId string) (*ComputeFlavor, *ResponseMeta, error) {
 	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/flavors/" + flavorId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)

@@ -9,7 +9,7 @@ type getComputeVersionsResponseParam struct {
 // ComputeVersions fetches Compute API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_version_list.html
-func (c *Conoha) ComputeVersions() ([]*Version, *responseMeta, error) {
+func (c *Conoha) ComputeVersions() ([]*Version, *ResponseMeta, error) {
 	p := getComputeVersionsResponseParam{}
 
 	u := c.ComputeServiceURL

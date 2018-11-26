@@ -19,7 +19,7 @@ type Notification struct {
 // Notification fetches notifications list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-informations-detail-specified.html
-func (c *Conoha) Notification(notificationCode string) (Notification, *responseMeta, error) {
+func (c *Conoha) Notification(notificationCode string) (Notification, *ResponseMeta, error) {
 	p := getAccountNotificationResponseParam{}
 
 	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/notifications/" + notificationCode

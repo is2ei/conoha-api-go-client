@@ -35,5 +35,5 @@ func TestConoha_IsoImages(t *testing.T) {
 
 	assert.IsType(t, new([]*IsoImage), &isoImages)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

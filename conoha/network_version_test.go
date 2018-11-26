@@ -35,5 +35,5 @@ func TestConoha_NetworkVersion(t *testing.T) {
 
 	assert.IsType(t, new(Version), &version)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

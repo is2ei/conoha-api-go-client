@@ -35,5 +35,5 @@ func TestConoha_OrderItems(t *testing.T) {
 
 	assert.IsType(t, new([]OrderItem), &items)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

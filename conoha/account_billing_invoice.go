@@ -29,7 +29,7 @@ type BillingInvoiceItem struct {
 // BillingInvoice fetches invoice information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-billing-invoices-detail-specified.html
-func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *responseMeta, error) {
+func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *ResponseMeta, error) {
 	p := getAccountBillingInvoiceResponseParam{}
 
 	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/billing-invoices/" + invoiceId

@@ -35,5 +35,5 @@ func TestConoha_ComputeServers(t *testing.T) {
 
 	assert.IsType(t, new([]*ComputeServer), &servers)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

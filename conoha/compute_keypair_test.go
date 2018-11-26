@@ -44,5 +44,5 @@ func TestConoha_ComputeKeypair(t *testing.T) {
 	assert.Equal(t, "", keypair.DeletedAt)
 	assert.Equal(t, 9, keypair.Id)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

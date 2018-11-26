@@ -11,7 +11,7 @@ type getDnsVersionsResponseParam struct {
 // DnsVersions fetches DNS API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/paas-dns-get-version-list.html
-func (c *Conoha) DnsVersions() ([]*Version, *responseMeta, error) {
+func (c *Conoha) DnsVersions() ([]*Version, *ResponseMeta, error) {
 	p := getDnsVersionsResponseParam{}
 
 	u := c.DNSServiceURL

@@ -35,5 +35,5 @@ func TestConoha_AccountNotification(t *testing.T) {
 
 	assert.IsType(t, new(Notification), &notification)
 
-	assert.IsType(t, new(responseMeta), meta)
+	assert.IsType(t, new(ResponseMeta), meta)
 }

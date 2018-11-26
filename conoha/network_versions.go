@@ -9,7 +9,7 @@ type getNetworkVersionsResponseParam struct {
 // NetworkVersions fetches Network API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/neutron-get_version_list.html
-func (c *Conoha) NetworkVersions() ([]Version, *responseMeta, error) {
+func (c *Conoha) NetworkVersions() ([]Version, *ResponseMeta, error) {
 	p := getNetworkVersionsResponseParam{}
 
 	u := c.NetworkServiceURL
