@@ -12,7 +12,7 @@ type getNetworkVersionsResponseParam struct {
 func (c *Conoha) NetworkVersions() ([]Version, *responseMeta, error) {
 	p := getNetworkVersionsResponseParam{}
 
-	u := c.NetworkServiceUrl
+	u := c.NetworkServiceURL
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
