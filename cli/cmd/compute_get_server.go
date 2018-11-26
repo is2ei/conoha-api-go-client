@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	getComputeServerCmd.Flags().StringVarP(&serverId, "serverId", "i", "", "Server ID")
+	getComputeServerCmd.Flags().StringVarP(&serverID, "serverId", "i", "", "Server ID")
 	serverCmd.AddCommand(getComputeServerCmd)
 }
 
@@ -25,7 +25,7 @@ var getComputeServerCmd = &cobra.Command{
 			client.Token = access.Token.Id
 		}
 
-		server, _, err := client.ComputeServer(serverId)
+		server, _, err := client.ComputeServer(serverID)
 		if err != nil {
 			fmt.Println(err)
 			return err

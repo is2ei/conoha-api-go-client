@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	deleteComputeServerCmd.Flags().StringVarP(&serverId, "serverId", "i", "", "Server ID")
+	deleteComputeServerCmd.Flags().StringVarP(&serverID, "serverId", "i", "", "Server ID")
 	serverCmd.AddCommand(deleteComputeServerCmd)
 }
 
@@ -23,7 +23,7 @@ var deleteComputeServerCmd = &cobra.Command{
 			}
 			client.Token = access.Token.Id
 		}
-		_, err := client.DeleteComputeServer(serverId)
+		_, err := client.DeleteComputeServer(serverID)
 		if err != nil {
 			fmt.Println(err)
 			return err
