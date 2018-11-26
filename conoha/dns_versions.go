@@ -14,7 +14,7 @@ type getDnsVersionsResponseParam struct {
 func (c *Conoha) DnsVersions() ([]*Version, *responseMeta, error) {
 	p := getDnsVersionsResponseParam{}
 
-	u := c.DnsServiceUrl
+	u := c.DNSServiceURL
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
