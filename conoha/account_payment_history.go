@@ -19,7 +19,7 @@ type PaymentHistory struct {
 func (c *Conoha) PaymentHistory() ([]PaymentHistory, *responseMeta, error) {
 	p := getAccountPaymentHistoryResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/payment-history"
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/payment-history"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

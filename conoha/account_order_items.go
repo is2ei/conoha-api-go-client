@@ -12,7 +12,7 @@ type getAccountOrderItemsResponseParam struct {
 func (c *Conoha) OrderItems() ([]OrderItem, *responseMeta, error) {
 	p := getAccountOrderItemsResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/order-items"
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/order-items"
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

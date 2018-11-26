@@ -32,7 +32,7 @@ type BillingInvoiceItem struct {
 func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *responseMeta, error) {
 	p := getAccountBillingInvoiceResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/billing-invoices/" + invoiceId
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/billing-invoices/" + invoiceId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

@@ -86,7 +86,7 @@ func (c *Conoha) IdentityToken() (*access, *responseMeta, error) {
 	}
 	auth := identityAuth{
 		IdentityPasswordCredentials: passwordCredentials,
-		TenantId:                    c.TenantId,
+		TenantId:                    c.TenantID,
 	}
 	param := postIdentityTokenRequestParam{
 		Auth: auth,

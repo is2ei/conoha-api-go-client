@@ -22,7 +22,7 @@ type Notification struct {
 func (c *Conoha) Notification(notificationCode string) (Notification, *responseMeta, error) {
 	p := getAccountNotificationResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/notifications/" + notificationCode
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/notifications/" + notificationCode
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

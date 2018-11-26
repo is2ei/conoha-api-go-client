@@ -25,7 +25,7 @@ type Conoha struct {
 	MailServiceURL          string
 	Username                string
 	Password                string
-	TenantId                string
+	TenantID                string
 	Token                   string
 	Client                  *http.Client
 }
@@ -68,7 +68,7 @@ func NewConoha(
 		MailServiceURL:          mailServiceUrl,
 		Username:                username,
 		Password:                password,
-		TenantId:                tenantId,
+		TenantID:                tenantId,
 		Token:                   token,
 		Client:                  client,
 	}

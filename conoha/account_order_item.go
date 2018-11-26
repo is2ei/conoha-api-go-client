@@ -24,7 +24,7 @@ type OrderItem struct {
 func (c *Conoha) OrderItem(itemId string) (OrderItem, *responseMeta, error) {
 	p := getAccountOrderItemResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantId + "/order-items/" + itemId
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/order-items/" + itemId
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

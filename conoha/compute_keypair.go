@@ -23,7 +23,7 @@ type Keypair struct {
 //
 // https://www.conoha.jp/docs/compute-get_keypairs_detail_specified.html
 func (c *Conoha) ComputeKeypair(keypairName string) (*Keypair, *responseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantId + "/os-keypairs/" + keypairName
+	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/os-keypairs/" + keypairName
 
 	p := getComputeKeypairResponseParam{}
 

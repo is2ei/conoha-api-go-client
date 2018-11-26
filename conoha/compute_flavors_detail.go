@@ -13,7 +13,7 @@ type getComputeFlavorsDetailResponseParam struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_flavors_detail.html
 func (c *Conoha) ComputeFlavorsDetail() ([]*ComputeFlavor, *responseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/flavors/detail", c.ComputeServiceURL, c.TenantId)
+	u := fmt.Sprintf("%s/v2/%s/flavors/detail", c.ComputeServiceURL, c.TenantID)
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	p := getComputeFlavorsDetailResponseParam{}
