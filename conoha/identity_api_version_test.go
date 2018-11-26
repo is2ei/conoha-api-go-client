@@ -29,7 +29,7 @@ func TestConoha_IdentityApiVersion(t *testing.T) {
 		"token",
 	)
 
-	version, meta, err := conoha.IdentityApiVersion()
+	version, meta, err := conoha.IdentityAPIVersion()
 
 	assert.NoError(t, err)
 

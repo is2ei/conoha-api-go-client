@@ -15,7 +15,7 @@ var getVersionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Get API Version",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		version, _, err := client.IdentityApiVersion()
+		version, _, err := client.IdentityAPIVersion()
 		if err != nil {
 			fmt.Println(err)
 			return err
