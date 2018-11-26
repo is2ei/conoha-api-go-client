@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var invoiceId string
+var invoiceID string
 
 func init() {
-	getAccountBillingInvoiceCmd.Flags().StringVarP(&invoiceId, "id", "i", "", "Invoice ID")
+	getAccountBillingInvoiceCmd.Flags().StringVarP(&invoiceID, "id", "i", "", "Invoice ID")
 	accountCmd.AddCommand(getAccountBillingInvoiceCmd)
 }
 
@@ -26,7 +26,7 @@ var getAccountBillingInvoiceCmd = &cobra.Command{
 			}
 			client.Token = access.Token.Id
 		}
-		invoice, _, err := client.BillingInvoice(invoiceId)
+		invoice, _, err := client.BillingInvoice(invoiceID)
 		if err != nil {
 			fmt.Println(err)
 			return err
