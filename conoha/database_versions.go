@@ -12,7 +12,7 @@ type getDatabaseVersionsResponseParam struct {
 func (c *Conoha) DatabaseVersions() ([]Version, *responseMeta, error) {
 	p := getDatabaseVersionsResponseParam{}
 
-	u := c.DatabaseServiceUrl
+	u := c.DatabaseServiceURL
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {

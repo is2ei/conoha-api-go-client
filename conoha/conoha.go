@@ -20,7 +20,7 @@ type Conoha struct {
 	ImageServiceURL         string
 	NetworkServiceURL       string
 	ObjectStorageServiceURL string
-	DatabaseServiceUrl      string
+	DatabaseServiceURL      string
 	DnsServiceUrl           string
 	MailServiceUrl          string
 	Username                string
@@ -63,7 +63,7 @@ func NewConoha(
 		ImageServiceURL:         imageServiceUrl,
 		NetworkServiceURL:       networkServiceUrl,
 		ObjectStorageServiceURL: objectStorageServiceUrl,
-		DatabaseServiceUrl:      databaseServiceUrl,
+		DatabaseServiceURL:      databaseServiceUrl,
 		DnsServiceUrl:           dnsServiceUrl,
 		MailServiceUrl:          mailServiceUrl,
 		Username:                username,
