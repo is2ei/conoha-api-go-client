@@ -17,7 +17,7 @@ type Conoha struct {
 	AccountServiceURL       string
 	ComputeServiceURL       string
 	BlockStorageServiceURL  string
-	ImageServiceUrl         string
+	ImageServiceURL         string
 	NetworkServiceUrl       string
 	ObjectStorageServiceUrl string
 	DatabaseServiceUrl      string
@@ -60,7 +60,7 @@ func NewConoha(
 		AccountServiceURL:       accountServiceUrl,
 		ComputeServiceURL:       computeServiceUrl,
 		BlockStorageServiceURL:  blockStorageServiceUrl,
-		ImageServiceUrl:         imageServiceUrl,
+		ImageServiceURL:         imageServiceUrl,
 		NetworkServiceUrl:       networkServiceUrl,
 		ObjectStorageServiceUrl: objectStorageServiceUrl,
 		DatabaseServiceUrl:      databaseServiceUrl,

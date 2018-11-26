@@ -12,7 +12,7 @@ type getImageVersionsResponseParam struct {
 func (c *Conoha) ImageVersions() ([]Version, *responseMeta, error) {
 	p := getImageVersionsResponseParam{}
 
-	u := c.ImageServiceUrl
+	u := c.ImageServiceURL
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
