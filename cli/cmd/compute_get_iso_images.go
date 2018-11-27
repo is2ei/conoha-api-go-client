@@ -22,7 +22,7 @@ var getComputeIsoImagesCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 		isoImages, _, err := client.IsoImages()
 		if err != nil {

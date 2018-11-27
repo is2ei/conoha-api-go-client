@@ -23,7 +23,7 @@ var getComputeServersCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 
 		servers, _, err := client.ComputeServers()

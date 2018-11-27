@@ -21,7 +21,7 @@ var getNetworkVersionCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 		version, _, err := client.NetworkVersion()
 		if err != nil {

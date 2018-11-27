@@ -21,7 +21,7 @@ var getAccountPaymentSummaryCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 		paymentSummary, _, err := client.PaymentSummary()
 		if err != nil {

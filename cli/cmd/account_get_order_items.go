@@ -21,7 +21,7 @@ var getAccountOrderItemsCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 		items, _, err := client.OrderItems()
 		if err != nil {

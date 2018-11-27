@@ -34,7 +34,7 @@ type access struct {
 type Token struct {
 	IssuedAt string   `json:"issued_at"`
 	Expires  string   `json:"expires"`
-	Id       string   `json:"id"`
+	ID       string   `json:"id"`
 	Tenant   *tenant  `json:"tenant"`
 	AuditIds []string `json:"audit_ids"`
 }

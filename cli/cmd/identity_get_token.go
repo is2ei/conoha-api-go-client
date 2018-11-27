@@ -29,11 +29,11 @@ var getTokenCmd = &cobra.Command{
 		}
 
 		if verbose {
-			fmt.Printf("%stoken%s[%s%s%s], ", yellow, normal, green, access.Token.Id, normal)
+			fmt.Printf("%stoken%s[%s%s%s], ", yellow, normal, green, access.Token.ID, normal)
 			fmt.Printf("%sexpires%s[%s%s%s]", yellow, normal, green, access.Token.Expires, normal)
 			fmt.Printf("\n")
 		} else {
-			fmt.Print(access.Token.Id)
+			fmt.Print(access.Token.ID)
 		}
 
 		return nil

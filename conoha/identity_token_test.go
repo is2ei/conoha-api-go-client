@@ -38,7 +38,7 @@ func TestConoha_IdentityToken(t *testing.T) {
 	assert.IsType(t, new(Token), a.Token)
 	assert.IsType(t, "2015-05-19T07:08:21.927295", a.Token.IssuedAt)
 	assert.IsType(t, "2015-05-20T07:08:21Z", a.Token.Expires)
-	assert.IsType(t, "sample00d88246078f2bexample788f7", a.Token.Id)
+	assert.IsType(t, "sample00d88246078f2bexample788f7", a.Token.ID)
 
 	assert.IsType(t, new(tenant), a.Token.Tenant)
 	assert.Equal(t, "did", a.Token.Tenant.DomainId)

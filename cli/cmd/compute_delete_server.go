@@ -21,7 +21,7 @@ var deleteComputeServerCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 		_, err := client.DeleteComputeServer(serverID)
 		if err != nil {

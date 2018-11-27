@@ -21,7 +21,7 @@ var getDatabaseVersionCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 		version, _, err := client.DatabaseVersion()
 		if err != nil {

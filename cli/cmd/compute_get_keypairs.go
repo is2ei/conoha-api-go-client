@@ -22,7 +22,7 @@ var getComputeKeypairsCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 
 		keypairs, _, err := client.ComputeKeypairs()

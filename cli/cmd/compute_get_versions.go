@@ -21,7 +21,7 @@ var getComputeVersionsCmd = &cobra.Command{
 				fmt.Println(err)
 				return err
 			}
-			client.Token = access.Token.Id
+			client.Token = access.Token.ID
 		}
 
 		versions, _, err := client.ComputeVersions()
