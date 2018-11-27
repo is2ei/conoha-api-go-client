@@ -16,8 +16,8 @@ type osStop struct {
 // ForceShutdownServer shutdowns the server forcefully.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-stop_forcibly_vm.html
-func (c *Conoha) ForceShutdownServer(serverId string) (*ResponseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
+func (c *Conoha) ForceShutdownServer(serverID string) (*ResponseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
 	o := osStop{
 		ForceShutdown: true,
