@@ -29,7 +29,7 @@ func TestConoha_AccountApiVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.AccountApiVersions()
+	versions, meta, err := conoha.AccountAPIVersions()
 
 	assert.NoError(t, err)
 
