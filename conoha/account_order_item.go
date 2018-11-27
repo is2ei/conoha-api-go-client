@@ -21,10 +21,10 @@ type OrderItem struct {
 // OrderItem fetches the order's detailed information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-order-item-detail-specified.html
-func (c *Conoha) OrderItem(itemId string) (OrderItem, *ResponseMeta, error) {
+func (c *Conoha) OrderItem(itemID string) (OrderItem, *ResponseMeta, error) {
 	p := getAccountOrderItemResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/order-items/" + itemId
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/order-items/" + itemID
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
