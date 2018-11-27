@@ -8,7 +8,7 @@ type getDNSVersionsResponseParam struct {
 	} `json:"versions"`
 }
 
-// DnsVersions fetches DNS API versions list.
+// DNSVersions fetches DNS API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/paas-dns-get-version-list.html
 func (c *Conoha) DNSVersions() ([]*Version, *ResponseMeta, error) {

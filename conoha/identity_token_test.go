@@ -33,7 +33,7 @@ func TestConoha_IdentityToken(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(access), a)
+	assert.IsType(t, new(Access), a)
 
 	assert.IsType(t, new(Token), a.Token)
 	assert.IsType(t, "2015-05-19T07:08:21.927295", a.Token.IssuedAt)

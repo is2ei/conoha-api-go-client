@@ -14,7 +14,7 @@ type ComputeServer struct {
 	OsExtSrvAttrInstanceName       string                             `json:"OS-EXT-SRV-ATTR:instance_name,omitempty"`
 	OsExtStsPowerState             int                                `json:"OS-EXT-STS:power_state,omitempty"`
 	OsExtStsTaskState              string                             `json:"OS-EXT-STS:task_state,omitempty"`
-	OsExtStsVmState                string                             `json:"OS-EXT-STS:vm_state,omitempty"`
+	OsExtStsVMState                string                             `json:"OS-EXT-STS:vm_state,omitempty"`
 	OsSrvUsgLaunchedAt             string                             `json:"OS-SRV-USG:launched_at,omitempty"`
 	OsSrvUsgTerminatedAt           string                             `json:"OS-SRV-USG:terminated_at,omitempty"`
 	AccessIPv4                     string                             `json:"accessIPv4,omitempty"`
@@ -23,17 +23,17 @@ type ComputeServer struct {
 	ConfigDrive                    string                             `json:"config_drive,omitempty"`
 	Created                        string                             `json:"created,omitempty"`
 	Flavor                         *ComputeFlavor                     `json:"flavor,omitempty"`
-	HostId                         string                             `json:"hostId,omitempty"`
-	Id                             string                             `json:"id,omitempty"`
+	HostID                         string                             `json:"hostId,omitempty"`
+	ID                             string                             `json:"id,omitempty"`
 	Image                          *ComputeImage                      `json:"image,omitempty"`
 	KeyName                        string                             `json:"key_name,omitempty"`
 	Links                          []*ComputeServerLink               `json:"links,omitempty"`
 	Metadata                       *ComputeServerMetadata             `json:"metadata,omitempty"`
 	Name                           string                             `json:"name,omitempty"`
 	Status                         string                             `json:"status,omitempty"`
-	TenantId                       string                             `json:"tenant_id,omitempty"`
+	TenantID                       string                             `json:"tenant_id,omitempty"`
 	Updated                        string                             `json:"updated"`
-	UserId                         string                             `json:"user_id"`
+	UserID                         string                             `json:"user_id"`
 	ImageRef                       string                             `json:"imageRef,omitempty"`
 	FlavorRef                      string                             `json:"flavorRef,omitempty"`
 	AdminPass                      string                             `json:"adminPass,omitempty"`
@@ -47,7 +47,7 @@ type ComputeServerAddress struct {
 
 // ComputeServerMetadata represents the metadata for the server.
 type ComputeServerMetadata struct {
-	BackupId        string `json:"backup_id"`
+	BackupID        string `json:"backup_id"`
 	BackupSet       string `json:"backup_set"`
 	BackupStatus    string `json:"backup_status"`
 	InstanceNameTag string `json:"instance_name_tag"`
@@ -94,8 +94,8 @@ type ComputeSecurityGroup struct {
 // ComputeServer fetches the server information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_detail_specified.html
-func (c *Conoha) ComputeServer(serverId string) (*ComputeServer, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverId
+func (c *Conoha) ComputeServer(serverID string) (*ComputeServer, *ResponseMeta, error) {
+	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverID
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	p := getComputeServerResponseParam{}
@@ -150,8 +150,8 @@ func (c *Conoha) AddComputeServer(
 // DeleteComputeServer deletes the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-delete_vm.html
-func (c *Conoha) DeleteComputeServer(serverId string) (*ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverId
+func (c *Conoha) DeleteComputeServer(serverID string) (*ResponseMeta, error) {
+	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverID
 
 	_, meta, err := c.buildAndExecRequest("DELETE", u, nil)
 
@@ -161,8 +161,8 @@ func (c *Conoha) DeleteComputeServer(serverId string) (*ResponseMeta, error) {
 // StartComputeServer starts the serer.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-power_on_vm.html
-func (c *Conoha) StartComputeServer(serverId string) (*ResponseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
+func (c *Conoha) StartComputeServer(serverID string) (*ResponseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
 	param := computeStartServerRequestParam{
 		OsStart: "null",
@@ -177,8 +177,8 @@ func (c *Conoha) StartComputeServer(serverId string) (*ResponseMeta, error) {
 // StopComputeServer stops the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-stop_cleanly_vm.html
-func (c *Conoha) StopComputeServer(serverId string) (*ResponseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
+func (c *Conoha) StopComputeServer(serverID string) (*ResponseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
 	param := computeStopServerRequestParam{
 		OsStop: "null",
@@ -193,8 +193,8 @@ func (c *Conoha) StopComputeServer(serverId string) (*ResponseMeta, error) {
 // RebootComputeServer reboots the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-reboot_vm.html
-func (c *Conoha) RebootComputeServer(serverId string, isSoft bool) (*ResponseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverId)
+func (c *Conoha) RebootComputeServer(serverID string, isSoft bool) (*ResponseMeta, error) {
+	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
 	var t string
 	if isSoft {

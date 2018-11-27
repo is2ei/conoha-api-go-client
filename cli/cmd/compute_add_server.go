@@ -52,7 +52,7 @@ var addComputeServerCmd = &cobra.Command{
 		if verbose {
 			pp.Println(server)
 		} else {
-			fmt.Printf("id[%s%s%s], password[%s%s%s]", green, server.Id, normal, yellow, server.AdminPass, normal)
+			fmt.Printf("id[%s%s%s], password[%s%s%s]", green, server.ID, normal, yellow, server.AdminPass, normal)
 			fmt.Printf("\n")
 		}
 

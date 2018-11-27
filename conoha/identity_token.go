@@ -20,10 +20,11 @@ type identityPasswordCredentials struct {
 }
 
 type postIdentityTokenResponseParam struct {
-	Access access `json:"access"`
+	Access Access `json:"access"`
 }
 
-type access struct {
+// Access represents data contains token and metadata.
+type Access struct {
 	Token          *Token                 `json:"token"`
 	ServiceCatalog []*serviceCatalog      `json:"serviceCatalog"`
 	User           *user                  `json:"user"`
@@ -79,7 +80,7 @@ type identityTokenMetadata struct {
 // IdentityToken issues ConoHa API access token.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/identity-post_tokens.html
-func (c *Conoha) IdentityToken() (*access, *ResponseMeta, error) {
+func (c *Conoha) IdentityToken() (*Access, *ResponseMeta, error) {
 	passwordCredentials := identityPasswordCredentials{
 		Username: c.Username,
 		Password: c.Password,

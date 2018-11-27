@@ -37,7 +37,7 @@ var getComputeServersDetailCmd = &cobra.Command{
 		} else {
 			for _, server := range servers {
 				fmt.Printf("name[%s%s%s], id[%s%s%s], status[%s%s%s], ",
-					green, server.Name, normal, yellow, server.Id, normal, green, server.Status, normal)
+					green, server.Name, normal, yellow, server.ID, normal, green, server.Status, normal)
 				for _, address := range server.Addresses {
 					for _, a := range address {
 						fmt.Printf("address[%s%s%s], ", yellow, a.Addr, normal)
