@@ -10,11 +10,11 @@ type getComputeImageResponseParam struct {
 type ComputeImage struct {
 	OsExtImgSize int                   `json:"OS-EXT-IMG-SIZE:size"`
 	Created      string                `json:"created"`
-	Id           string                `json:"id"`
+	ID           string                `json:"id"`
 	Links        []*Link               `json:"links"`
 	Metadata     *ComputeImageMetadata `json:"metadata"`
 	MinDisk      int                   `json:"minDisk"`
-	MinRam       int                   `json:"minRam"`
+	MinRAM       int                   `json:"minRam"`
 	Name         string                `json:"name"`
 	Progress     int                   `json:"progress"`
 	Status       string                `json:"status"`
@@ -32,8 +32,8 @@ type ComputeImageMetadata struct {
 // ComputeImage fetches summarized information of the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_images_detail_specified.html
-func (c *Conoha) ComputeImage(imageId string) (*ComputeImage, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/images/" + imageId
+func (c *Conoha) ComputeImage(imageID string) (*ComputeImage, *ResponseMeta, error) {
+	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/images/" + imageID
 
 	p := getComputeImageResponseParam{}
 

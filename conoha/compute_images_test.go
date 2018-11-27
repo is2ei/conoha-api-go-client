@@ -35,7 +35,7 @@ func TestConoha_ComputeImages(t *testing.T) {
 
 	assert.IsType(t, new([]ComputeImage), &images)
 	assert.Equal(t, 1, len(images))
-	assert.Equal(t, "545e54a7-77ba-4d49-8c0e-af7291bb7b63", images[0].Id)
+	assert.Equal(t, "545e54a7-77ba-4d49-8c0e-af7291bb7b63", images[0].ID)
 	assert.Equal(t, "500G-0507", images[0].Name)
 
 	assert.IsType(t, new(ResponseMeta), meta)

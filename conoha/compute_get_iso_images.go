@@ -8,7 +8,7 @@ type getComputeIsoImagesResponseParam struct {
 
 // IsoImage represents ISO image.
 type IsoImage struct {
-	Url   string `json:"url"`
+	URL   string `json:"url"`
 	Path  string `json:"path"`
 	Ctime string `json:"ctime"`
 	Name  string `json:"name"`

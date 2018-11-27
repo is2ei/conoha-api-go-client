@@ -54,7 +54,7 @@ func TestConoha_ComputeImage(t *testing.T) {
 	assert.Equal(t, "lin", image.Metadata.OsType)
 
 	assert.Equal(t, 0, image.MinDisk)
-	assert.Equal(t, 0, image.MinRam)
+	assert.Equal(t, 0, image.MinRAM)
 	assert.Equal(t, "vmi-ror-4.2-centos-6.6", image.Name)
 	assert.Equal(t, 100, image.Progress)
 	assert.Equal(t, "ACTIVE", image.Status)
