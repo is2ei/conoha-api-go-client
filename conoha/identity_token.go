@@ -40,10 +40,10 @@ type Token struct {
 }
 
 type tenant struct {
-	DomainId    string `json:"domain_id"`
+	DomainID    string `json:"domain_id"`
 	Description string `json:"description"`
 	Enabled     bool   `json:"enabled"`
-	Id          string `json:"id"`
+	ID          string `json:"id"`
 	Name        string `json:"name"`
 }
 
@@ -59,7 +59,7 @@ type endpoint struct {
 type user struct {
 	Username   string       `json:"username"`
 	RolesLinks []*rolesLink `json:"roles_links"`
-	Id         string       `json:"id"`
+	ID         string       `json:"id"`
 	Roles      []*role      `json:"roles"`
 	Name       string       `json:"name"`
 }

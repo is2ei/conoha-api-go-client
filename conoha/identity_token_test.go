@@ -41,10 +41,10 @@ func TestConoha_IdentityToken(t *testing.T) {
 	assert.IsType(t, "sample00d88246078f2bexample788f7", a.Token.ID)
 
 	assert.IsType(t, new(tenant), a.Token.Tenant)
-	assert.Equal(t, "did", a.Token.Tenant.DomainId)
+	assert.Equal(t, "did", a.Token.Tenant.DomainID)
 	assert.Equal(t, "v2", a.Token.Tenant.Description)
 	assert.Equal(t, true, a.Token.Tenant.Enabled)
-	assert.Equal(t, "sample00d88246078f2bexample788f7", a.Token.Tenant.Id)
+	assert.Equal(t, "sample00d88246078f2bexample788f7", a.Token.Tenant.ID)
 	assert.Equal(t, "example00000000", a.Token.Tenant.Name)
 
 	assert.IsType(t, new([]string), &a.Token.AuditIds)
@@ -63,7 +63,7 @@ func TestConoha_IdentityToken(t *testing.T) {
 
 	assert.IsType(t, new([]*rolesLink), &a.User.RolesLinks)
 
-	assert.Equal(t, "sample00d88246078f2bexample788f7", a.User.Id)
+	assert.Equal(t, "sample00d88246078f2bexample788f7", a.User.ID)
 
 	assert.IsType(t, new([]*role), &a.User.Roles)
 	assert.Equal(t, "example00000000", a.User.Roles[0].Name)
