@@ -9,14 +9,14 @@ type getComputeKeypairResponseParam struct {
 // Keypair represents key pair information.
 type Keypair struct {
 	PublicKey   string `json:"public_key"`
-	UserId      string `json:"user_id"`
+	UserID      string `json:"user_id"`
 	Name        string `json:"name"`
 	Deleted     bool   `json:"deleted"`
 	CreatedAt   string `json:"created_at"`
 	UpdatedAt   string `json:"updated_at"`
 	FingerPrint string `json:"fingerprint"`
 	DeletedAt   string `json:"deleted_at"`
-	Id          int    `json:"id"`
+	ID          int    `json:"id"`
 }
 
 // ComputeKeypair fetches the key pair information.
