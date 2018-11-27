@@ -15,7 +15,7 @@ var getDNSVersionsCmd = &cobra.Command{
 	Use:   "versions",
 	Short: "Get API versions",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		versions, _, err := client.DnsVersions()
+		versions, _, err := client.DNSVersions()
 		if err != nil {
 			fmt.Println(err)
 			return err

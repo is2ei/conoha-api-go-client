@@ -29,7 +29,7 @@ func TestConoha_DnsVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.DnsVersions()
+	versions, meta, err := conoha.DNSVersions()
 
 	assert.NoError(t, err)
 
