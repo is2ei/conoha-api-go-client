@@ -9,7 +9,7 @@ type getAccountBillingInvoiceResponseParam struct {
 // BillingInvoice represents invoice information.
 type BillingInvoice struct {
 	Items             []*BillingInvoiceItem `json:"items"`
-	InvoiceId         int                   `json:"invoice_id"`
+	InvoiceID         int                   `json:"invoice_id"`
 	PaymentMethodType string                `json:"payment_method_type"`
 	InvoiceDate       string                `json:"invoice_date"`
 	BillPlasTax       int                   `json:"bill_plas_tax"`
@@ -18,7 +18,7 @@ type BillingInvoice struct {
 
 // BillingInvoiceItem represents detailed information of the invoice.
 type BillingInvoiceItem struct {
-	InvoiceDetailId int     `json:"invoice_detail_id"`
+	InvoiceDetailID int     `json:"invoice_detail_id"`
 	ProductName     string  `json:"product_name"`
 	UnitPrice       float32 `json:"unit_price"`
 	Quantity        int     `json:"quantity"`
@@ -29,10 +29,10 @@ type BillingInvoiceItem struct {
 // BillingInvoice fetches invoice information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-billing-invoices-detail-specified.html
-func (c *Conoha) BillingInvoice(invoiceId string) (BillingInvoice, *ResponseMeta, error) {
+func (c *Conoha) BillingInvoice(invoiceID string) (BillingInvoice, *ResponseMeta, error) {
 	p := getAccountBillingInvoiceResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/billing-invoices/" + invoiceId
+	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/billing-invoices/" + invoiceID
 
 	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
 	if err == nil {
