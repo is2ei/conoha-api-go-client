@@ -11,7 +11,7 @@ type postIdentityTokenRequestParam struct {
 
 type identityAuth struct {
 	IdentityPasswordCredentials identityPasswordCredentials `json:"passwordCredentials"`
-	TenantId                    string                      `json:"tenantId"`
+	TenantID                    string                      `json:"tenantId"`
 }
 
 type identityPasswordCredentials struct {
@@ -86,7 +86,7 @@ func (c *Conoha) IdentityToken() (*access, *ResponseMeta, error) {
 	}
 	auth := identityAuth{
 		IdentityPasswordCredentials: passwordCredentials,
-		TenantId:                    c.TenantID,
+		TenantID:                    c.TenantID,
 	}
 	param := postIdentityTokenRequestParam{
 		Auth: auth,
