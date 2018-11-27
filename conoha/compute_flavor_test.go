@@ -37,7 +37,7 @@ func TestConoha_ComputeFlavor(t *testing.T) {
 	assert.Equal(t, false, flavor.OsFlvDisabled)
 	assert.Equal(t, 0, flavor.OsFlvExtData)
 	assert.Equal(t, 50, flavor.Disk)
-	assert.Equal(t, "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", flavor.Id)
+	assert.Equal(t, "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", flavor.ID)
 
 	assert.IsType(t, new([]*Link), &flavor.Links)
 	assert.Equal(t, "https://compute.tyo1.conoha.io/v2/1864e71d2deb46f6b47526b69c65a45d/flavors/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", flavor.Links[0].Href)
@@ -47,7 +47,7 @@ func TestConoha_ComputeFlavor(t *testing.T) {
 
 	assert.Equal(t, "2gb-flavor", flavor.Name)
 	assert.Equal(t, true, flavor.OsFlavorAccessIsPublic)
-	assert.Equal(t, 2048, flavor.Ram)
+	assert.Equal(t, 2048, flavor.RAM)
 	assert.Equal(t, 1, flavor.RxtxFactor)
 	assert.Equal(t, "", flavor.Swap)
 	assert.Equal(t, 3, flavor.Vcpus)

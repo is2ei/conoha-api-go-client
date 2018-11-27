@@ -34,7 +34,7 @@ var getComputeFlavorsCmd = &cobra.Command{
 			pp.Println(flavors)
 		} else {
 			for _, flavor := range flavors {
-				fmt.Printf("name[\x1b[32m%s\x1b[0m],id[\x1b[33m%s\x1b[0m]\n", flavor.Name, flavor.Id)
+				fmt.Printf("name[\x1b[32m%s\x1b[0m],id[\x1b[33m%s\x1b[0m]\n", flavor.Name, flavor.ID)
 			}
 		}
 
