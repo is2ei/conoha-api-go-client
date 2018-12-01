@@ -1,9 +1,12 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getAccountOrderItemResponseParam struct {
-	OrderItem OrderItem `json:"order_item"`
+	OrderItem *OrderItem `json:"order_item"`
 }
 
 // OrderItem represents the services/products ordered by the user.
@@ -21,12 +24,13 @@ type OrderItem struct {
 // OrderItem fetches the order's detailed information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-order-item-detail-specified.html
-func (c *Conoha) OrderItem(itemID string) (OrderItem, *ResponseMeta, error) {
+func (c *Conoha) OrderItem(itemID string) (*OrderItem, *ResponseMeta, error) {
+
+	apiEndPoint := fmt.Sprintf("%s/v1/%s/order-items/%s", c.AccountServiceURL, c.TenantID, itemID)
+
 	p := getAccountOrderItemResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/order-items/" + itemID
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

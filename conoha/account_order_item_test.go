@@ -33,7 +33,7 @@ func TestConoha_AccountOrderItem(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(OrderItem), &item)
+	assert.IsType(t, new(OrderItem), item)
 
 	assert.IsType(t, new(ResponseMeta), meta)
 }
