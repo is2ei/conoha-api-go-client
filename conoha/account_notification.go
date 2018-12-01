@@ -1,9 +1,12 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getAccountNotificationResponseParam struct {
-	Notification Notification `json:"notification"`
+	Notification *Notification `json:"notification"`
 }
 
 // Notification represents notification from ConoHa to the users.
@@ -19,12 +22,13 @@ type Notification struct {
 // Notification fetches notifications list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-informations-detail-specified.html
-func (c *Conoha) Notification(notificationCode string) (Notification, *ResponseMeta, error) {
+func (c *Conoha) Notification(notificationCode string) (*Notification, *ResponseMeta, error) {
+
+	apiEndPoint := fmt.Sprintf("%s/v1/%s/notifications/%s", c.AccountServiceURL, c.TenantID, notificationCode)
+
 	p := getAccountNotificationResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/notifications/" + notificationCode
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
