@@ -1,9 +1,12 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getAccountPaymentHistoryResponseParam struct {
-	PaymentHistory []PaymentHistory `json:"payment_history"`
+	PaymentHistory []*PaymentHistory `json:"payment_history"`
 }
 
 // PaymentHistory represents payment history.
@@ -16,12 +19,13 @@ type PaymentHistory struct {
 // PaymentHistory fetches payment history.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-payment-histories.html
-func (c *Conoha) PaymentHistory() ([]PaymentHistory, *ResponseMeta, error) {
+func (c *Conoha) PaymentHistory() ([]*PaymentHistory, *ResponseMeta, error) {
+
+	apiEndPoint := fmt.Sprintf("%s/v1/%s/payment-history", c.AccountServiceURL, c.TenantID)
+
 	p := getAccountPaymentHistoryResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/payment-history"
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
