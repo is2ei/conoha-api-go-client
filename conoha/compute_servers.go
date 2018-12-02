@@ -1,6 +1,9 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeServersResponseParam struct {
 	Servers []*ComputeServer `json:"servers"`
@@ -10,11 +13,12 @@ type getComputeServersResponseParam struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_list.html
 func (c *Conoha) ComputeServers() ([]*ComputeServer, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers"
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers", c.ComputeServiceURL, c.TenantID)
 
 	p := getComputeServersResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
