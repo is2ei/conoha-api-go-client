@@ -33,7 +33,7 @@ func TestConoha_MailVersions(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new([]Version), &versions)
+	assert.IsType(t, new([]*Version), &versions)
 
 	assert.IsType(t, new(ResponseMeta), meta)
 }
