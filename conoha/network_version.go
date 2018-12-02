@@ -1,20 +1,24 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getNetworkVersionResponseParam struct {
-	Version Version `json:"version"`
+	Version *Version `json:"version"`
 }
 
 // NetworkVersion fetches Network API information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/neutron-get_version_detail.html
-func (c *Conoha) NetworkVersion() (Version, *ResponseMeta, error) {
+func (c *Conoha) NetworkVersion() (*Version, *ResponseMeta, error) {
+
+	apiEndPoint := fmt.Sprintf("%s/v2.0", c.NetworkServiceURL)
+
 	p := getNetworkVersionResponseParam{}
 
-	u := c.NetworkServiceURL + "/v2.0"
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
