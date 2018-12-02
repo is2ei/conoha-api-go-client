@@ -12,11 +12,12 @@ type getDNSVersionsResponseParam struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/paas-dns-get-version-list.html
 func (c *Conoha) DNSVersions() ([]*Version, *ResponseMeta, error) {
+
+	apiEndPoint := c.DNSServiceURL
+
 	p := getDNSVersionsResponseParam{}
 
-	u := c.DNSServiceURL
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
