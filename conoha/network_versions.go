@@ -3,18 +3,19 @@ package conoha
 import "encoding/json"
 
 type getNetworkVersionsResponseParam struct {
-	Versions []Version `json:"versions"`
+	Versions []*Version `json:"versions"`
 }
 
 // NetworkVersions fetches Network API versions list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/neutron-get_version_list.html
-func (c *Conoha) NetworkVersions() ([]Version, *ResponseMeta, error) {
+func (c *Conoha) NetworkVersions() ([]*Version, *ResponseMeta, error) {
+
+	apiEndPoint := c.NetworkServiceURL
+
 	p := getNetworkVersionsResponseParam{}
 
-	u := c.NetworkServiceURL
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
