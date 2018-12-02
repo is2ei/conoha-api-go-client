@@ -10,11 +10,12 @@ type getComputeVersionsResponseParam struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_version_list.html
 func (c *Conoha) ComputeVersions() ([]*Version, *ResponseMeta, error) {
+
+	apiEndPoint := c.ComputeServiceURL
+
 	p := getComputeVersionsResponseParam{}
 
-	u := c.ComputeServiceURL
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
