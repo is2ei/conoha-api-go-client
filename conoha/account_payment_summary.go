@@ -1,9 +1,12 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getAccountPaymentSummaryResponseParam struct {
-	PaymentSummary PaymentSummary `json:"payment_summary"`
+	PaymentSummary *PaymentSummary `json:"payment_summary"`
 }
 
 // PaymentSummary represencts summarized information of the payment.
@@ -14,12 +17,13 @@ type PaymentSummary struct {
 // PaymentSummary fetches summarized information of the payment.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-payment-summary.html
-func (c *Conoha) PaymentSummary() (PaymentSummary, *ResponseMeta, error) {
+func (c *Conoha) PaymentSummary() (*PaymentSummary, *ResponseMeta, error) {
+
+	apiEndPoint := fmt.Sprintf("%s/v1/%s/payment-summary", c.AccountServiceURL, c.TenantID)
+
 	p := getAccountPaymentSummaryResponseParam{}
 
-	u := c.AccountServiceURL + "/v1/" + c.TenantID + "/payment-summary"
-
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
