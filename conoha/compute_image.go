@@ -1,6 +1,9 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeImageResponseParam struct {
 	Image *ComputeImage `json:"image"`
@@ -33,11 +36,12 @@ type ComputeImageMetadata struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_images_detail_specified.html
 func (c *Conoha) ComputeImage(imageID string) (*ComputeImage, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/images/" + imageID
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/images/%s", c.ComputeServiceURL, c.TenantID, imageID)
 
 	p := getComputeImageResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
