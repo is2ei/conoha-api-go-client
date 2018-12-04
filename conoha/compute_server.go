@@ -118,7 +118,8 @@ func (c *Conoha) AddComputeServer(
 	keyName,
 	securityGroupName string,
 ) (*ComputeServer, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers"
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers", c.ComputeServiceURL, c.TenantID)
 
 	if securityGroupName == "" {
 		securityGroupName = "default"
@@ -135,13 +136,16 @@ func (c *Conoha) AddComputeServer(
 		KeyName:        keyName,
 		SecurityGroups: []*ComputeSecurityGroup{&securityGroup},
 	}
+
 	param := computeAddServerRequestParam{
 		Server: server,
 	}
+
 	body, _ := json.Marshal(param)
 
-	contents, meta, err := c.buildAndExecRequest("POST", u, body)
 	p := computeAddServerResponseParam{}
+
+	contents, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
