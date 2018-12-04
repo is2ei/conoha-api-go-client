@@ -1,19 +1,24 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeImagesResponseParam struct {
-	Images []ComputeImage `json:"images"`
+	Images []*ComputeImage `json:"images"`
 }
 
 // ComputeImages fetches server images list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_images_list.html
-func (c *Conoha) ComputeImages() ([]ComputeImage, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/images"
+func (c *Conoha) ComputeImages() ([]*ComputeImage, *ResponseMeta, error) {
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/images", c.ComputeServiceURL, c.TenantID)
+
 	p := getComputeImagesResponseParam{}
+
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
