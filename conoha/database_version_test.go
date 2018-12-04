@@ -33,7 +33,7 @@ func TestConoha_DatabaseVersion(t *testing.T) {
 
 	assert.NoError(t, err)
 
-	assert.IsType(t, new(Version), &version)
+	assert.IsType(t, new(Version), version)
 
 	assert.IsType(t, new(ResponseMeta), meta)
 }
