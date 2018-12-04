@@ -1,6 +1,9 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeFlavorResponseParam struct {
 	Flavor *ComputeFlavor `json:"flavor"`
@@ -25,11 +28,12 @@ type ComputeFlavor struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_flavors_detail_specified.html
 func (c *Conoha) ComputeFlavor(flavorID string) (*ComputeFlavor, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/flavors/" + flavorID
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/flavors/%s", c.ComputeServiceURL, c.TenantID, flavorID)
 
 	p := getComputeFlavorResponseParam{}
+
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
