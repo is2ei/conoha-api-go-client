@@ -95,10 +95,12 @@ type ComputeSecurityGroup struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_detail_specified.html
 func (c *Conoha) ComputeServer(serverID string) (*ComputeServer, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverID
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s", c.ComputeServiceURL, c.TenantID, serverID)
+
 	p := getComputeServerResponseParam{}
+
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
