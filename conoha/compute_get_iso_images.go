@@ -1,6 +1,9 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeIsoImagesResponseParam struct {
 	IsoImages []*IsoImage `json:"iso-images"`
@@ -19,11 +22,12 @@ type IsoImage struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-iso-list-show.html
 func (c *Conoha) IsoImages() ([]*IsoImage, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/iso-images"
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/iso-images", c.ComputeServiceURL, c.TenantID)
 
 	p := getComputeIsoImagesResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
