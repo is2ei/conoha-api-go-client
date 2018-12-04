@@ -186,14 +186,15 @@ func (c *Conoha) StartComputeServer(serverID string) (*ResponseMeta, error) {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-stop_cleanly_vm.html
 func (c *Conoha) StopComputeServer(serverID string) (*ResponseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
 	param := computeStopServerRequestParam{
 		OsStop: "null",
 	}
 	body, _ := json.Marshal(param)
 
-	_, meta, err := c.buildAndExecRequest("POST", u, body)
+	_, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
 
 	return meta, err
 }
