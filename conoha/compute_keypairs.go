@@ -1,6 +1,9 @@
 package conoha
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 type getComputeKeypairsResponseParam struct {
 	Keypairs []*KeypairParent `json:"keypairs"`
@@ -15,11 +18,12 @@ type KeypairParent struct {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_keypairs.html
 func (c *Conoha) ComputeKeypairs() ([]*KeypairParent, *ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/os-keypairs"
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/os-keypairs", c.ComputeServiceURL, c.TenantID)
 
 	p := getComputeKeypairsResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", u, nil)
+	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
