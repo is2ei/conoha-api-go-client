@@ -157,9 +157,10 @@ func (c *Conoha) AddComputeServer(
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-delete_vm.html
 func (c *Conoha) DeleteComputeServer(serverID string) (*ResponseMeta, error) {
-	u := c.ComputeServiceURL + "/v2/" + c.TenantID + "/servers/" + serverID
 
-	_, meta, err := c.buildAndExecRequest("DELETE", u, nil)
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s", c.ComputeServiceURL, c.TenantID, serverID)
+
+	_, meta, err := c.buildAndExecRequest("DELETE", apiEndPoint, nil)
 
 	return meta, err
 }
