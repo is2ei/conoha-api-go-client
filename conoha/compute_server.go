@@ -169,14 +169,15 @@ func (c *Conoha) DeleteComputeServer(serverID string) (*ResponseMeta, error) {
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-power_on_vm.html
 func (c *Conoha) StartComputeServer(serverID string) (*ResponseMeta, error) {
-	u := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
+
+	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
 	param := computeStartServerRequestParam{
 		OsStart: "null",
 	}
 	body, _ := json.Marshal(param)
 
-	_, meta, err := c.buildAndExecRequest("POST", u, body)
+	_, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
 
 	return meta, err
 }
