@@ -1,9 +1,10 @@
 package conoha
 
 import (
+	"reflect"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/k0kubun/pp"
 )
 
 func TestConoha_AccountApiVersions(t *testing.T) {
@@ -29,18 +30,26 @@ func TestConoha_AccountApiVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.AccountAPIVersions()
+	got, _, err := conoha.AccountAPIVersions()
+	if err != nil {
+		t.Errorf("Conoha.AccountAPIVersions returned error: %v", err)
+	}
+	if want := wantVersions; !reflect.DeepEqual(got, want) {
+		t.Errorf("Conoha.AccountAPIVersions returned unexpected result.\n got: %s\nwant: %s\n", pp.Sprint(got), pp.Sprint(want))
+	}
+}
 
-	assert.NoError(t, err)
-
-	assert.IsType(t, new([]*Version), &versions)
-	assert.Equal(t, 1, len(versions))
-	assert.Equal(t, "CURRENT", versions[0].Status)
-	assert.Equal(t, "2015-05-12T09:00:00Z", versions[0].Updated)
-
-	assert.IsType(t, new(ResponseMeta), meta)
-	assert.Equal(t, "GET", meta.Method)
-	assert.Equal(t, 300, meta.StatusCode)
-
-	assert.IsType(t, new(Conoha), conoha)
+var wantVersions = []*Version{
+	&Version{
+		Status:  "CURRENT",
+		Updated: "2015-05-12T09:00:00Z",
+		ID:      "v1.0",
+		Links: []*Link{
+			&Link{
+				Href: "https://account.tyo1.conoha.io/v1/",
+				Type: "",
+				Rel:  "self",
+			},
+		},
+	},
 }

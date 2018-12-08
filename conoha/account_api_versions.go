@@ -3,7 +3,7 @@ package conoha
 import "encoding/json"
 
 type getAccountAPIVersionsResponseParam struct {
-	Versions []*Version `json:"versions"`
+	Versions []*Version `json:"versions,omitempty"`
 }
 
 // AccountAPIVersions fetches Account API versions list.
@@ -16,8 +16,13 @@ func (c *Conoha) AccountAPIVersions() ([]*Version, *ResponseMeta, error) {
 	p := getAccountAPIVersionsResponseParam{}
 
 	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
-	if err == nil {
-		err = json.Unmarshal(contents, &p)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	err = json.Unmarshal(contents, &p)
+	if err != nil {
+		return nil, nil, err
 	}
 
 	return p.Versions, meta, err
