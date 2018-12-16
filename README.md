@@ -2,11 +2,13 @@ conoha-api-go-client [日本語](README-ja.md)
 =========
 
 [![Build Status](https://travis-ci.org/is2ei/conoha-api-go-client.svg?branch=master&style=flat-square)][travis]
+[![Build Status](https://cloud.drone.io/api/badges/is2ei/conoha-api-go-client/status.svg)][drone]
 [![Coverage Status](https://coveralls.io/repos/github/is2ei/conoha-api-go-client/badge.svg?branch=master)][coverall]
 [![Go Documentation](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)][godocs]
 [![Go Report Card](https://goreportcard.com/badge/github.com/is2ei/conoha-api-go-client)][goreport]
 
 [travis]: https://travis-ci.org/is2ei/conoha-api-go-client
+[drone]: https://cloud.drone.io/is2ei/conoha-api-go-client
 [coverall]: https://coveralls.io/github/is2ei/conoha-api-go-client?branch=master
 [godocs]: https://godoc.org/github.com/is2ei/conoha-api-go-client/conoha
 [goreport]: https://goreportcard.com/report/github.com/is2ei/conoha-api-go-client
