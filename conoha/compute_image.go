@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getComputeImageResponseParam struct {
@@ -42,7 +43,7 @@ func (c *Conoha) ComputeImage(ctx context.Context, imageID string) (*ComputeImag
 
 	p := getComputeImageResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

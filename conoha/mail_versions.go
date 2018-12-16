@@ -3,6 +3,7 @@ package conoha
 import (
 	"context"
 	"encoding/json"
+	"net/http"
 )
 
 type getMailVersionsResponseParam struct {
@@ -18,7 +19,7 @@ func (c *Conoha) MailVersions(ctx context.Context) ([]*Version, *ResponseMeta, e
 
 	p := getMailVersionsResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

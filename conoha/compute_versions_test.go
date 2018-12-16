@@ -2,6 +2,7 @@ package conoha
 
 import (
 	"context"
+	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -40,7 +41,7 @@ func TestConoha_ComputeVersions(t *testing.T) {
 	assert.Equal(t, "2015-05-12T09:00:00Z", versions[0].Updated)
 
 	assert.IsType(t, new(ResponseMeta), meta)
-	assert.Equal(t, "GET", meta.Method)
+	assert.Equal(t, http.MethodGet, meta.Method)
 	assert.Equal(t, 300, meta.StatusCode)
 
 	assert.IsType(t, new(Conoha), conoha)

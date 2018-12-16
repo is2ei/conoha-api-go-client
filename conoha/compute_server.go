@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 // ComputeServer represents the server information.
@@ -101,7 +102,7 @@ func (c *Conoha) ComputeServer(ctx context.Context, serverID string) (*ComputeSe
 
 	p := getComputeServerResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
@@ -225,7 +226,7 @@ func (c *Conoha) RebootComputeServer(ctx context.Context, serverID string, isSof
 
 	body, _ := json.Marshal(p)
 
-	_, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
+	_, meta, err := c.buildAndExecRequest(ctx, http.MethodPost, apiEndPoint, body)
 
 	return meta, err
 }

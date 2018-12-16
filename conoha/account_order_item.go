@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getAccountOrderItemResponseParam struct {
@@ -31,7 +32,7 @@ func (c *Conoha) OrderItem(ctx context.Context, itemID string) (*OrderItem, *Res
 
 	p := getAccountOrderItemResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

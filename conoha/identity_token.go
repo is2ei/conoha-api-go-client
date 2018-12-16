@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type postIdentityTokenRequestParam struct {
@@ -100,7 +101,7 @@ func (c *Conoha) IdentityToken(ctx context.Context) (*Access, *ResponseMeta, err
 
 	p := postIdentityTokenResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodPost, apiEndPoint, body)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

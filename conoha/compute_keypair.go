@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getComputeKeypairResponseParam struct {
@@ -32,7 +33,7 @@ func (c *Conoha) ComputeKeypair(ctx context.Context, keypairName string) (*Keypa
 
 	p := getComputeKeypairResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

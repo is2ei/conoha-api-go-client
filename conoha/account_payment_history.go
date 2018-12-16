@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getAccountPaymentHistoryResponseParam struct {
@@ -26,7 +27,7 @@ func (c *Conoha) PaymentHistory(ctx context.Context) ([]*PaymentHistory, *Respon
 
 	p := getAccountPaymentHistoryResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type computeForceShutdownRequestParam struct {
@@ -31,7 +32,7 @@ func (c *Conoha) ForceShutdownServer(ctx context.Context, serverID string) (*Res
 
 	body, _ := json.Marshal(p)
 
-	_, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
+	_, meta, err := c.buildAndExecRequest(ctx, http.MethodPost, apiEndPoint, body)
 
 	return meta, err
 }

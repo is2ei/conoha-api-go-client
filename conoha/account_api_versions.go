@@ -3,6 +3,7 @@ package conoha
 import (
 	"context"
 	"encoding/json"
+	"net/http"
 )
 
 type getAccountAPIVersionsResponseParam struct {
@@ -18,7 +19,7 @@ func (c *Conoha) AccountAPIVersions(ctx context.Context) ([]*Version, *ResponseM
 
 	p := getAccountAPIVersionsResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err != nil {
 		return nil, nil, err
 	}

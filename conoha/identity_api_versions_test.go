@@ -2,6 +2,7 @@ package conoha
 
 import (
 	"context"
+	"net/http"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -39,7 +40,7 @@ func TestConoha_IdentityApiVersions(t *testing.T) {
 	assert.Equal(t, "v2.0", versions[0].ID)
 
 	assert.IsType(t, new(ResponseMeta), meta)
-	assert.Equal(t, "GET", meta.Method)
+	assert.Equal(t, http.MethodGet, meta.Method)
 	assert.Equal(t, 300, meta.StatusCode)
 
 	assert.IsType(t, new(Conoha), conoha)

@@ -98,22 +98,7 @@ func (c *Conoha) buildRequest(method, url string, body []byte) (*http.Request, e
 	return req, err
 }
 
-//func (c *Conoha) execRequest(ctx context.Context, method, url string, body []byte) (*http.Response, error) {
 func (c *Conoha) execRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
-	// var req *http.Request
-	// var err error
-
-	// if body != nil {
-	// 	req, err = http.NewRequest(method, url, bytes.NewReader(body))
-	// } else {
-	// 	req, err = http.NewRequest(method, url, nil)
-	// }
-	// if err != nil {
-	// 	return nil, err
-	// }
-
-	// req.Header.Add("Accept", "application/json")
-	// req.Header.Add("X-Auth-Token", c.Token)
 
 	req = withContext(ctx, req)
 

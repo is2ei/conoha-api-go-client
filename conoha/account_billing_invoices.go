@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getAccountBillingInvoicesResponseParam struct {
@@ -19,7 +20,7 @@ func (c *Conoha) BillingInvoices(ctx context.Context) ([]*BillingInvoice, *Respo
 
 	p := getAccountBillingInvoicesResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

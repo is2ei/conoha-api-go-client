@@ -3,6 +3,7 @@ package conoha
 import (
 	"context"
 	"encoding/json"
+	"net/http"
 )
 
 type getNetworkVersionsResponseParam struct {
@@ -18,7 +19,7 @@ func (c *Conoha) NetworkVersions(ctx context.Context) ([]*Version, *ResponseMeta
 
 	p := getNetworkVersionsResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

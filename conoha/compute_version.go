@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getComputeVersionResponseParam struct {
@@ -19,7 +20,7 @@ func (c *Conoha) ComputeVersion(ctx context.Context) (*Version, *ResponseMeta, e
 
 	p := getComputeVersionResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

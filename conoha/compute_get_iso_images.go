@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getComputeIsoImagesResponseParam struct {
@@ -28,7 +29,7 @@ func (c *Conoha) IsoImages(ctx context.Context) ([]*IsoImage, *ResponseMeta, err
 
 	p := getComputeIsoImagesResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

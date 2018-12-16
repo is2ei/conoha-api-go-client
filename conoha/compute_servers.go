@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getComputeServersResponseParam struct {
@@ -19,7 +20,7 @@ func (c *Conoha) ComputeServers(ctx context.Context) ([]*ComputeServer, *Respons
 
 	p := getComputeServersResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

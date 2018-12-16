@@ -3,6 +3,7 @@ package conoha
 import (
 	"context"
 	"encoding/json"
+	"net/http"
 )
 
 type getIdentityAPIVersionsResponseParam struct {
@@ -22,7 +23,7 @@ func (c *Conoha) IdentityAPIVersions(ctx context.Context) ([]*Version, *Response
 
 	p := getIdentityAPIVersionsResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

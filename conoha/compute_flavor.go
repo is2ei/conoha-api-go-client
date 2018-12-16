@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"net/http"
 )
 
 type getComputeFlavorResponseParam struct {
@@ -34,7 +35,7 @@ func (c *Conoha) ComputeFlavor(ctx context.Context, flavorID string) (*ComputeFl
 
 	p := getComputeFlavorResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, http.MethodGet, apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
