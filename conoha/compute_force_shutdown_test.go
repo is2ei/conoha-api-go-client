@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ForceShutdownServer(t *testing.T) {
 		"token",
 	)
 
-	meta, err := conoha.ForceShutdownServer("server_id")
+	meta, err := conoha.ForceShutdownServer(context.Background(), "server_id")
 
 	assert.NoError(t, err)
 

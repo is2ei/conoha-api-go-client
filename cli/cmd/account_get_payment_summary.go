@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -15,15 +16,16 @@ var getAccountPaymentSummaryCmd = &cobra.Command{
 	Use:   "payment-summary",
 	Short: "Get Payment Summary",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
 		if client.Token == "" {
-			access, _, err := client.IdentityToken()
+			access, _, err := client.IdentityToken(ctx)
 			if err != nil {
 				fmt.Println(err)
 				return err
 			}
 			client.Token = access.Token.ID
 		}
-		paymentSummary, _, err := client.PaymentSummary()
+		paymentSummary, _, err := client.PaymentSummary(ctx)
 		if err != nil {
 			fmt.Println(err)
 			return err

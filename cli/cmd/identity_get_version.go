@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -15,7 +16,8 @@ var getVersionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Get API Version",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		version, _, err := client.IdentityAPIVersion()
+		ctx := context.Background()
+		version, _, err := client.IdentityAPIVersion(ctx)
 		if err != nil {
 			fmt.Println(err)
 			return err

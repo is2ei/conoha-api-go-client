@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -21,13 +22,13 @@ type IsoImage struct {
 // IsoImages fetches ISO images list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-iso-list-show.html
-func (c *Conoha) IsoImages() ([]*IsoImage, *ResponseMeta, error) {
+func (c *Conoha) IsoImages(ctx context.Context) ([]*IsoImage, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/iso-images", c.ComputeServiceURL, c.TenantID)
 
 	p := getComputeIsoImagesResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

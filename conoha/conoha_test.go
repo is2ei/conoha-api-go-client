@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -165,7 +166,8 @@ func TestClientDoError(t *testing.T) {
 		"token",
 	)
 
-	_, err := conoha.execRequest("AAA", "aaa", nil)
+	req, _ := conoha.buildRequest("AAA", "aaa", nil)
+	_, err := conoha.execRequest(context.Background(), req)
 
 	assert.EqualError(t, err, "Client.Do error: \"Aaa aaa: unsupported protocol scheme \\\"\\\"\"")
 }

@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ComputeKeypair(t *testing.T) {
 		"token",
 	)
 
-	keypair, meta, err := conoha.ComputeKeypair("keypair_name")
+	keypair, meta, err := conoha.ComputeKeypair(context.Background(), "keypair_name")
 
 	assert.NoError(t, err)
 

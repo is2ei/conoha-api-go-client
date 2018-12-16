@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ImageVersion(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.ImageVersions()
+	versions, meta, err := conoha.ImageVersions(context.Background())
 
 	assert.NoError(t, err)
 

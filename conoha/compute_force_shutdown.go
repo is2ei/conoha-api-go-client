@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -16,7 +17,7 @@ type osStop struct {
 // ForceShutdownServer shutdowns the server forcefully.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-stop_forcibly_vm.html
-func (c *Conoha) ForceShutdownServer(serverID string) (*ResponseMeta, error) {
+func (c *Conoha) ForceShutdownServer(ctx context.Context, serverID string) (*ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
@@ -30,7 +31,7 @@ func (c *Conoha) ForceShutdownServer(serverID string) (*ResponseMeta, error) {
 
 	body, _ := json.Marshal(p)
 
-	_, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
+	_, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
 
 	return meta, err
 }

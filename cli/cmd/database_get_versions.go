@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -15,7 +16,8 @@ var getDatabaseVersionsCmd = &cobra.Command{
 	Use:   "versions",
 	Short: "Get API versions",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		version, _, err := client.DatabaseVersions()
+		ctx := context.Background()
+		version, _, err := client.DatabaseVersions(ctx)
 		if err != nil {
 			fmt.Println(err)
 			return err

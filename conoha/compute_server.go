@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -94,13 +95,13 @@ type ComputeSecurityGroup struct {
 // ComputeServer fetches the server information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_vms_detail_specified.html
-func (c *Conoha) ComputeServer(serverID string) (*ComputeServer, *ResponseMeta, error) {
+func (c *Conoha) ComputeServer(ctx context.Context, serverID string) (*ComputeServer, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s", c.ComputeServiceURL, c.TenantID, serverID)
 
 	p := getComputeServerResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
@@ -112,6 +113,7 @@ func (c *Conoha) ComputeServer(serverID string) (*ComputeServer, *ResponseMeta, 
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-create_vm.html
 func (c *Conoha) AddComputeServer(
+	ctx context.Context,
 	imageRef,
 	flavorRef,
 	adminPass,
@@ -145,7 +147,7 @@ func (c *Conoha) AddComputeServer(
 
 	p := computeAddServerResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
+	contents, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}
@@ -156,11 +158,11 @@ func (c *Conoha) AddComputeServer(
 // DeleteComputeServer deletes the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-delete_vm.html
-func (c *Conoha) DeleteComputeServer(serverID string) (*ResponseMeta, error) {
+func (c *Conoha) DeleteComputeServer(ctx context.Context, serverID string) (*ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s", c.ComputeServiceURL, c.TenantID, serverID)
 
-	_, meta, err := c.buildAndExecRequest("DELETE", apiEndPoint, nil)
+	_, meta, err := c.buildAndExecRequest(ctx, "DELETE", apiEndPoint, nil)
 
 	return meta, err
 }
@@ -168,7 +170,7 @@ func (c *Conoha) DeleteComputeServer(serverID string) (*ResponseMeta, error) {
 // StartComputeServer starts the serer.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-power_on_vm.html
-func (c *Conoha) StartComputeServer(serverID string) (*ResponseMeta, error) {
+func (c *Conoha) StartComputeServer(ctx context.Context, serverID string) (*ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
@@ -177,7 +179,7 @@ func (c *Conoha) StartComputeServer(serverID string) (*ResponseMeta, error) {
 	}
 	body, _ := json.Marshal(param)
 
-	_, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
+	_, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
 
 	return meta, err
 }
@@ -185,7 +187,7 @@ func (c *Conoha) StartComputeServer(serverID string) (*ResponseMeta, error) {
 // StopComputeServer stops the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-stop_cleanly_vm.html
-func (c *Conoha) StopComputeServer(serverID string) (*ResponseMeta, error) {
+func (c *Conoha) StopComputeServer(ctx context.Context, serverID string) (*ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
@@ -194,7 +196,7 @@ func (c *Conoha) StopComputeServer(serverID string) (*ResponseMeta, error) {
 	}
 	body, _ := json.Marshal(param)
 
-	_, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
+	_, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
 
 	return meta, err
 }
@@ -202,7 +204,7 @@ func (c *Conoha) StopComputeServer(serverID string) (*ResponseMeta, error) {
 // RebootComputeServer reboots the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-reboot_vm.html
-func (c *Conoha) RebootComputeServer(serverID string, isSoft bool) (*ResponseMeta, error) {
+func (c *Conoha) RebootComputeServer(ctx context.Context, serverID string, isSoft bool) (*ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/servers/%s/action", c.ComputeServiceURL, c.TenantID, serverID)
 
@@ -223,7 +225,7 @@ func (c *Conoha) RebootComputeServer(serverID string, isSoft bool) (*ResponseMet
 
 	body, _ := json.Marshal(p)
 
-	_, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
+	_, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
 
 	return meta, err
 }

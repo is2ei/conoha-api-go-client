@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -16,8 +17,9 @@ var getComputeServerCmd = &cobra.Command{
 	Use:   "detail",
 	Short: "Get server detail",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
 		if client.Token == "" {
-			access, _, err := client.IdentityToken()
+			access, _, err := client.IdentityToken(ctx)
 			if err != nil {
 				fmt.Println(err)
 				return err
@@ -25,7 +27,7 @@ var getComputeServerCmd = &cobra.Command{
 			client.Token = access.Token.ID
 		}
 
-		server, _, err := client.ComputeServer(serverID)
+		server, _, err := client.ComputeServer(ctx, serverID)
 		if err != nil {
 			fmt.Println(err)
 			return err

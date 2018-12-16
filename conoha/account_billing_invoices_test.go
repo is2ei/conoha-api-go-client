@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_AccountBillingInvoices(t *testing.T) {
 		"token",
 	)
 
-	billingInvoices, meta, err := conoha.BillingInvoices()
+	billingInvoices, meta, err := conoha.BillingInvoices(context.Background())
 
 	assert.NoError(t, err)
 

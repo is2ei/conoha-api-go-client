@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -16,15 +17,16 @@ var getComputeFlavorsCmd = &cobra.Command{
 	Use:   "flavors",
 	Short: "Get flavors",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
 		if client.Token == "" {
-			access, _, err := client.IdentityToken()
+			access, _, err := client.IdentityToken(ctx)
 			if err != nil {
 				fmt.Println(err)
 				return err
 			}
 			client.Token = access.Token.ID
 		}
-		flavors, _, err := client.ComputeFlavors()
+		flavors, _, err := client.ComputeFlavors(ctx)
 		if err != nil {
 			fmt.Println(err)
 			return err

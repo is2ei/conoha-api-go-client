@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ComputeVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.ComputeVersions()
+	versions, meta, err := conoha.ComputeVersions(context.Background())
 
 	assert.NoError(t, err)
 

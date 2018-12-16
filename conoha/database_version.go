@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -12,13 +13,13 @@ type getDatabaseVersionResponseParam struct {
 // DatabaseVersion fetches Database API information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/paas-database-get-version-detail.html
-func (c *Conoha) DatabaseVersion() (*Version, *ResponseMeta, error) {
+func (c *Conoha) DatabaseVersion(ctx context.Context) (*Version, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v1", c.DatabaseServiceURL)
 
 	p := getDatabaseVersionResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

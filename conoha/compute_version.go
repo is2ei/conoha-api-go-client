@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -12,13 +13,13 @@ type getComputeVersionResponseParam struct {
 // ComputeVersion fetches Compute API information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_version_detail.html
-func (c *Conoha) ComputeVersion() (*Version, *ResponseMeta, error) {
+func (c *Conoha) ComputeVersion(ctx context.Context) (*Version, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2", c.ComputeServiceURL)
 
 	p := getComputeVersionResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

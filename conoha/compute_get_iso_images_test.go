@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_IsoImages(t *testing.T) {
 		"token",
 	)
 
-	isoImages, meta, err := conoha.IsoImages()
+	isoImages, meta, err := conoha.IsoImages(context.Background())
 
 	assert.NoError(t, err)
 

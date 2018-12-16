@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -12,13 +13,13 @@ type getMailVersionResponseParam struct {
 // MailVersion fetches Mail API information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/paas-mail-get-version-detail.html
-func (c *Conoha) MailVersion() (*Version, *ResponseMeta, error) {
+func (c *Conoha) MailVersion(ctx context.Context) (*Version, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v1", c.MailServiceURL)
 
 	p := getMailVersionResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

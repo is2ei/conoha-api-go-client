@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_AccountPaymentHistory(t *testing.T) {
 		"token",
 	)
 
-	paymentHistory, meta, err := conoha.PaymentHistory()
+	paymentHistory, meta, err := conoha.PaymentHistory(context.Background())
 
 	assert.NoError(t, err)
 

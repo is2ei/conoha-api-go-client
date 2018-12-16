@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -35,13 +36,13 @@ type ComputeImageMetadata struct {
 // ComputeImage fetches summarized information of the server.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_images_detail_specified.html
-func (c *Conoha) ComputeImage(imageID string) (*ComputeImage, *ResponseMeta, error) {
+func (c *Conoha) ComputeImage(ctx context.Context, imageID string) (*ComputeImage, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/images/%s", c.ComputeServiceURL, c.TenantID, imageID)
 
 	p := getComputeImageResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -80,7 +81,7 @@ type identityTokenMetadata struct {
 // IdentityToken issues ConoHa API access token.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/identity-post_tokens.html
-func (c *Conoha) IdentityToken() (*Access, *ResponseMeta, error) {
+func (c *Conoha) IdentityToken(ctx context.Context) (*Access, *ResponseMeta, error) {
 	passwordCredentials := identityPasswordCredentials{
 		Username: c.Username,
 		Password: c.Password,
@@ -99,7 +100,7 @@ func (c *Conoha) IdentityToken() (*Access, *ResponseMeta, error) {
 
 	p := postIdentityTokenResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("POST", apiEndPoint, body)
+	contents, meta, err := c.buildAndExecRequest(ctx, "POST", apiEndPoint, body)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

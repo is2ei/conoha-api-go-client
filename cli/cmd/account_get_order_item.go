@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -18,15 +19,16 @@ var getAccountOrderItemCmd = &cobra.Command{
 	Use:   "item",
 	Short: "Get order item",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
 		if client.Token == "" {
-			access, _, err := client.IdentityToken()
+			access, _, err := client.IdentityToken(ctx)
 			if err != nil {
 				fmt.Println(err)
 				return err
 			}
 			client.Token = access.Token.ID
 		}
-		item, _, err := client.OrderItem(itemID)
+		item, _, err := client.OrderItem(ctx, itemID)
 		if err != nil {
 			fmt.Println(err)
 			return err

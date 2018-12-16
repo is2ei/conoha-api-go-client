@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_IdentityToken(t *testing.T) {
 		"token",
 	)
 
-	a, meta, err := conoha.IdentityToken()
+	a, meta, err := conoha.IdentityToken(context.Background())
 
 	assert.NoError(t, err)
 

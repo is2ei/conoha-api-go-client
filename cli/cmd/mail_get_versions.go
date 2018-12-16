@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/k0kubun/pp"
@@ -15,7 +16,8 @@ var getMailVersionsCmd = &cobra.Command{
 	Use:   "versions",
 	Short: "Get API versions",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		versions, _, err := client.MailVersions()
+		ctx := context.Background()
+		versions, _, err := client.MailVersions(ctx)
 		if err != nil {
 			fmt.Println(err)
 			return err

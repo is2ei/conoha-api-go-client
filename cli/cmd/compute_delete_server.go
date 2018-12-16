@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/spf13/cobra"
@@ -15,15 +16,16 @@ var deleteComputeServerCmd = &cobra.Command{
 	Use:   "delete",
 	Short: "Delete server",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
 		if client.Token == "" {
-			access, _, err := client.IdentityToken()
+			access, _, err := client.IdentityToken(ctx)
 			if err != nil {
 				fmt.Println(err)
 				return err
 			}
 			client.Token = access.Token.ID
 		}
-		_, err := client.DeleteComputeServer(serverID)
+		_, err := client.DeleteComputeServer(ctx, serverID)
 		if err != nil {
 			fmt.Println(err)
 			return err

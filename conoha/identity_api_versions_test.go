@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_IdentityApiVersions(t *testing.T) {
 		"token",
 	)
 
-	versions, meta, err := conoha.IdentityAPIVersions()
+	versions, meta, err := conoha.IdentityAPIVersions(context.Background())
 
 	assert.NoError(t, err)
 

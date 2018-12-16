@@ -2,6 +2,7 @@ package conoha
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -75,22 +76,46 @@ func NewConoha(
 	}
 }
 
-func (c *Conoha) execRequest(method, url string, body []byte) (*http.Response, error) {
+func withContext(ctx context.Context, req *http.Request) *http.Request {
+	return req.WithContext(ctx)
+}
+
+func (c *Conoha) buildRequest(method, url string, body []byte) (*http.Request, error) {
 	var req *http.Request
 	var err error
-
 	if body != nil {
 		req, err = http.NewRequest(method, url, bytes.NewReader(body))
 	} else {
 		req, err = http.NewRequest(method, url, nil)
 	}
-
 	if err != nil {
 		return nil, err
 	}
 
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("X-Auth-Token", c.Token)
+
+	return req, err
+}
+
+//func (c *Conoha) execRequest(ctx context.Context, method, url string, body []byte) (*http.Response, error) {
+func (c *Conoha) execRequest(ctx context.Context, req *http.Request) (*http.Response, error) {
+	// var req *http.Request
+	// var err error
+
+	// if body != nil {
+	// 	req, err = http.NewRequest(method, url, bytes.NewReader(body))
+	// } else {
+	// 	req, err = http.NewRequest(method, url, nil)
+	// }
+	// if err != nil {
+	// 	return nil, err
+	// }
+
+	// req.Header.Add("Accept", "application/json")
+	// req.Header.Add("X-Auth-Token", c.Token)
+
+	req = withContext(ctx, req)
 
 	resp, err := c.Client.Do(req)
 	if err != nil {
@@ -129,9 +154,23 @@ func buildResponseMeta(resp *http.Response, method, u string) ResponseMeta {
 	return meta
 }
 
-func (c *Conoha) buildAndExecRequest(method, u string, body []byte) ([]byte, *ResponseMeta, error) {
-	resp, err := c.execRequest(method, u, body)
+func (c *Conoha) buildAndExecRequest(ctx context.Context, method, u string, body []byte) ([]byte, *ResponseMeta, error) {
+
+	req, err := c.buildRequest(method, u, body)
 	if err != nil {
+		return nil, nil, err
+	}
+
+	resp, err := c.execRequest(ctx, req)
+	if err != nil {
+		// If we got an error, and the context has been canceled,
+		// the context's error is probably more useful.
+		select {
+		case <-ctx.Done():
+			return nil, nil, ctx.Err()
+		default:
+		}
+
 		return nil, nil, err
 	}
 	defer resp.Body.Close()

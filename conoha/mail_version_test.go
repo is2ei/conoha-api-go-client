@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_MailVersion(t *testing.T) {
 		"token",
 	)
 
-	version, meta, err := conoha.MailVersion()
+	version, meta, err := conoha.MailVersion(context.Background())
 
 	assert.NoError(t, err)
 

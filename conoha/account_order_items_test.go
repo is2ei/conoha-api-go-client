@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_OrderItems(t *testing.T) {
 		"token",
 	)
 
-	items, meta, err := conoha.OrderItems()
+	items, meta, err := conoha.OrderItems(context.Background())
 
 	assert.NoError(t, err)
 

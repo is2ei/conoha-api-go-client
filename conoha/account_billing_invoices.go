@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -12,13 +13,13 @@ type getAccountBillingInvoicesResponseParam struct {
 // BillingInvoices fetches invoices list.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-billing-invoices-list.html
-func (c *Conoha) BillingInvoices() ([]*BillingInvoice, *ResponseMeta, error) {
+func (c *Conoha) BillingInvoices(ctx context.Context) ([]*BillingInvoice, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v1/%s/billing-invoices", c.AccountServiceURL, c.TenantID)
 
 	p := getAccountBillingInvoicesResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

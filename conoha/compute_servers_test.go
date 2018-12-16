@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ComputeServers(t *testing.T) {
 		"token",
 	)
 
-	servers, meta, err := conoha.ComputeServers()
+	servers, meta, err := conoha.ComputeServers(context.Background())
 
 	assert.NoError(t, err)
 

@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -27,13 +28,13 @@ type ComputeFlavor struct {
 // ComputeFlavor fetches the plan's information.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/compute-get_flavors_detail_specified.html
-func (c *Conoha) ComputeFlavor(flavorID string) (*ComputeFlavor, *ResponseMeta, error) {
+func (c *Conoha) ComputeFlavor(ctx context.Context, flavorID string) (*ComputeFlavor, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/flavors/%s", c.ComputeServiceURL, c.TenantID, flavorID)
 
 	p := getComputeFlavorResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

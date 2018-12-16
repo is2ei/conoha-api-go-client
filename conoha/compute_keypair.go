@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -25,13 +26,13 @@ type Keypair struct {
 // ComputeKeypair fetches the key pair information.
 //
 // https://www.conoha.jp/docs/compute-get_keypairs_detail_specified.html
-func (c *Conoha) ComputeKeypair(keypairName string) (*Keypair, *ResponseMeta, error) {
+func (c *Conoha) ComputeKeypair(ctx context.Context, keypairName string) (*Keypair, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v2/%s/os-keypairs/%s", c.ComputeServiceURL, c.TenantID, keypairName)
 
 	p := getComputeKeypairResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

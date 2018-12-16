@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 )
@@ -19,13 +20,13 @@ type PaymentHistory struct {
 // PaymentHistory fetches payment history.
 //
 // ConoHa API docs: https://www.conoha.jp/docs/account-payment-histories.html
-func (c *Conoha) PaymentHistory() ([]*PaymentHistory, *ResponseMeta, error) {
+func (c *Conoha) PaymentHistory(ctx context.Context) ([]*PaymentHistory, *ResponseMeta, error) {
 
 	apiEndPoint := fmt.Sprintf("%s/v1/%s/payment-history", c.AccountServiceURL, c.TenantID)
 
 	p := getAccountPaymentHistoryResponseParam{}
 
-	contents, meta, err := c.buildAndExecRequest("GET", apiEndPoint, nil)
+	contents, meta, err := c.buildAndExecRequest(ctx, "GET", apiEndPoint, nil)
 	if err == nil {
 		err = json.Unmarshal(contents, &p)
 	}

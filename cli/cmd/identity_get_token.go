@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/is2ei/conoha-api-go-client/conoha"
@@ -17,7 +18,8 @@ var getTokenCmd = &cobra.Command{
 	Use:   "token",
 	Short: "Get token",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		access, _, err := client.IdentityToken()
+		ctx := context.Background()
+		access, _, err := client.IdentityToken(ctx)
 		if err != nil {
 			switch err.(type) {
 			case *conoha.ErrUnauthorized:

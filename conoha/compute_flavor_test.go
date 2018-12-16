@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ComputeFlavor(t *testing.T) {
 		"token",
 	)
 
-	flavor, meta, err := conoha.ComputeFlavor("flavor_id")
+	flavor, meta, err := conoha.ComputeFlavor(context.Background(), "flavor_id")
 
 	assert.NoError(t, err)
 

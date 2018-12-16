@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ComputeServer(t *testing.T) {
 		"token",
 	)
 
-	server, meta, err := conoha.ComputeServer("server_id")
+	server, meta, err := conoha.ComputeServer(context.Background(), "server_id")
 
 	assert.NoError(t, err)
 
@@ -61,7 +62,7 @@ func TestConoha_AddComputeServer(t *testing.T) {
 		"token",
 	)
 
-	server, meta, err := conoha.AddComputeServer("", "", "", "", "")
+	server, meta, err := conoha.AddComputeServer(context.Background(), "", "", "", "", "")
 
 	assert.NoError(t, err)
 
@@ -94,7 +95,7 @@ func TestConoha_DeleteComputeServer(t *testing.T) {
 		"token",
 	)
 
-	meta, err := conoha.DeleteComputeServer("server_id")
+	meta, err := conoha.DeleteComputeServer(context.Background(), "server_id")
 
 	assert.NoError(t, err)
 
@@ -124,7 +125,7 @@ func TestConoha_StartComputeServer(t *testing.T) {
 		"token",
 	)
 
-	meta, err := conoha.StartComputeServer("server_id")
+	meta, err := conoha.StartComputeServer(context.Background(), "server_id")
 
 	assert.NoError(t, err)
 
@@ -154,7 +155,7 @@ func TestConoha_StopComputeServer(t *testing.T) {
 		"token",
 	)
 
-	meta, err := conoha.StopComputeServer("server_id")
+	meta, err := conoha.StopComputeServer(context.Background(), "server_id")
 
 	assert.NoError(t, err)
 
@@ -185,7 +186,7 @@ func TestConoha_RebootComputeServer(t *testing.T) {
 		"token",
 	)
 
-	meta, err := conoha.RebootComputeServer("server_id", true)
+	meta, err := conoha.RebootComputeServer(context.Background(), "server_id", true)
 
 	assert.NoError(t, err)
 

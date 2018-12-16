@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_AccountNotification(t *testing.T) {
 		"token",
 	)
 
-	notification, meta, err := conoha.Notification("notification_code")
+	notification, meta, err := conoha.Notification(context.Background(), "notification_code")
 
 	assert.NoError(t, err)
 

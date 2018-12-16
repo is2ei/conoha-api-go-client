@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"reflect"
 	"testing"
 
@@ -30,7 +31,7 @@ func TestConoha_AccountApiVersions(t *testing.T) {
 		"token",
 	)
 
-	got, _, err := conoha.AccountAPIVersions()
+	got, _, err := conoha.AccountAPIVersions(context.Background())
 	if err != nil {
 		t.Errorf("Conoha.AccountAPIVersions returned error: %v", err)
 	}

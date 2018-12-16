@@ -1,6 +1,7 @@
 package conoha
 
 import (
+	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -29,7 +30,7 @@ func TestConoha_ComputeImage(t *testing.T) {
 		"token",
 	)
 
-	image, meta, err := conoha.ComputeImage("image_id")
+	image, meta, err := conoha.ComputeImage(context.Background(), "image_id")
 
 	assert.NoError(t, err)
 
