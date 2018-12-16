@@ -9,5 +9,5 @@ steps:
 - name: test
   image: golang
   commands:
-  - go get
+  - go get github.com/is2ei/conoha-api-go-client/...
   - go test ./...
