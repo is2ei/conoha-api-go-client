@@ -1,11 +1,13 @@
 conoha-api-go-client [日本語](README-ja.md)
 =========
 
-[![Build Status](https://travis-ci.org/is2ei/conoha-api-go-client.svg?branch=master&style=flat-square)][travis]
-[![Build Status](https://cloud.drone.io/api/badges/is2ei/conoha-api-go-client/status.svg)][drone]
-[![Coverage Status](https://coveralls.io/repos/github/is2ei/conoha-api-go-client/badge.svg?branch=master)][coverall]
-[![Go Documentation](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)][godocs]
-[![Go Report Card](https://goreportcard.com/badge/github.com/is2ei/conoha-api-go-client)][goreport]
+| Badge | Description |
+| ------------- | ------------- |
+| [![Build Status](https://travis-ci.org/is2ei/conoha-api-go-client.svg?branch=master&style=flat-square)][travis] | Travis Build Status |
+| [![Build Status](https://cloud.drone.io/api/badges/is2ei/conoha-api-go-client/status.svg)][drone] | Drone Build Status |
+| [![Coverage Status](https://coveralls.io/repos/github/is2ei/conoha-api-go-client/badge.svg?branch=master)][coverall] | Coverall |
+| [![Go Documentation](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)][godocs] | Go Document |
+| [![Go Report Card](https://goreportcard.com/badge/github.com/is2ei/conoha-api-go-client)][goreport] | Go Report |
 
 [travis]: https://travis-ci.org/is2ei/conoha-api-go-client
 [drone]: https://cloud.drone.io/is2ei/conoha-api-go-client
