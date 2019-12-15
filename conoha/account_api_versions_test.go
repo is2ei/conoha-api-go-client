@@ -41,12 +41,12 @@ func TestConoha_AccountApiVersions(t *testing.T) {
 }
 
 var wantVersions = []*Version{
-	&Version{
+	{
 		Status:  "CURRENT",
 		Updated: "2015-05-12T09:00:00Z",
 		ID:      "v1.0",
 		Links: []*Link{
-			&Link{
+			{
 				Href: "https://account.tyo1.conoha.io/v1/",
 				Type: "",
 				Rel:  "self",
